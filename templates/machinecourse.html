@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Machine Learning</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pycourse.css') }}">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand">Study Space</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Course Content -->
+  <div class="container mt-4">
+    <ul class="nav nav-tabs" id="moduleTabs">
+      {% for i in range(1,6) %}
+      <li class="nav-item"><a class="nav-link {% if i == 1 %}active{% endif %}" data-bs-toggle="tab" href="#module{{ i }}">Module {{ i }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <div class="tab-content mt-3" id="tabContent">
+      {% for i in range(1,6) %}
+      <div id="module{{ i }}" class="tab-pane fade {% if i == 1 %}show active{% endif %}">
+        <h3>{{ ['Introduction to Machine Learning', 'Supervised Learning', 'Unsupervised Learning', 'Model Evaluation & Tuning', 'Final Project: ML App'][i-1] }}</h3>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <iframe id="module{{ i }}-video" width="100%" height="315" src="" allowfullscreen></iframe>
+            <div class="mt-3">
+              <button class="btn btn-secondary" id="prev-module{{ i }}" onclick="prevVideo('module{{ i }}')">Previous</button>
+              <button class="btn btn-primary" id="next-module{{ i }}" onclick="nextVideo('module{{ i }}')">Next</button>
+              {% if i == 5 %}
+              <button id="finish-course" class="btn btn-success mt-2" style="display: none;" onclick="goToQuiz()">Complete Course</button>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 id="module{{ i }}-title">Unit 1</h4>
+            <p id="module{{ i }}-description">
+              Content for Module {{ i }} will be shown here dynamically.
+            </p>
+            <div class="alert alert-info text-center" style="width: 110px;">
+              <strong>DURATION:</strong> 2 mins
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- JS Section -->
+  <script>
+    const videoData = {
+      "module1": [
+        { title: "What is Machine Learning?", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Understand what ML is and its real-world impact." },
+        { title: "Types of Machine Learning", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Learn about supervised, unsupervised, and reinforcement learning." }
+      ],
+      "module2": [
+        { title: "Linear Regression", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Implement simple linear regression with Python." },
+        { title: "Classification Algorithms", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Explore decision trees and logistic regression." }
+      ],
+      "module3": [
+        { title: "Clustering with K-Means", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Learn clustering techniques using k-means." },
+        { title: "Dimensionality Reduction", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Use PCA to reduce feature space." }
+      ],
+      "module4": [
+        { title: "Confusion Matrix", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Evaluate ML models with confusion matrices." },
+        { title: "Hyperparameter Tuning", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Optimize your model with grid search and random search." }
+      ],
+      "module5": [
+        { title: "Building a ML Application", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Create a simple ML app using Python and Flask." },
+        { title: "Final Project Walkthrough", url: "https://www.youtube.com/embed/ukzFI9rgwfU", desc: "Walkthrough of your ML course project." }
+      ]
+    };
+
+    const currentVideoIndex = {};
+
+    function updateModule(moduleId) {
+      const videoIndex = currentVideoIndex[moduleId] || 0;
+      const video = videoData[moduleId][videoIndex];
+      document.getElementById(`${moduleId}-video`).src = video.url;
+      document.getElementById(`${moduleId}-title`).innerText = video.title;
+      document.getElementById(`${moduleId}-description`).innerText = video.desc;
+
+      if (moduleId === "module5") {
+        const finishButton = document.getElementById("finish-course");
+        finishButton.style.display = (videoIndex === videoData[moduleId].length - 1) ? "inline-block" : "none";
+      }
+    }
+
+    function nextVideo(moduleId) {
+      if (currentVideoIndex[moduleId] === undefined) currentVideoIndex[moduleId] = 0;
+      if (currentVideoIndex[moduleId] < videoData[moduleId].length - 1) {
+        currentVideoIndex[moduleId]++;
+        updateModule(moduleId);
+      }
+    }
+
+    function prevVideo(moduleId) {
+      if (currentVideoIndex[moduleId] === undefined) currentVideoIndex[moduleId] = 0;
+      if (currentVideoIndex[moduleId] > 0) {
+        currentVideoIndex[moduleId]--;
+        updateModule(moduleId);
+      }
+    }
+
+    function goToQuiz() {
+      const courseName = "Machine Learning";
+      const encodedCourse = encodeURIComponent(courseName);
+      window.location.href = `/quiz?course=${encodedCourse}`;
+    }
+
+    window.onload = () => {
+      for (let module in videoData) {
+        currentVideoIndex[module] = 0;
+        updateModule(module);
+      }
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

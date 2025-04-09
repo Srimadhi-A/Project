@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Essentials</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!-- unit1 -->
+        <div id="unit1" class="unit active">
+            <div class="container">
+                <h1>Foundations of Data Science</h1>
+                <p>Explore the core concepts and skills needed to launch your journey in Data Science through structured
+                    units.</p>
+
+                <h2>Course Overview</h2>
+                <p>This module introduces the fundamentals of data science, an interdisciplinary field that uses
+                    techniques from statistics, computer science, and domain knowledge to extract insights from data.
+                </p>
+                <p>You'll gain an understanding of the data science lifecycle, including data collection, cleaning,
+                    analysis, visualization, and machine learning applications.</p>
+
+                <h1>Unit 1: Introduction to Data Science</h1>
+
+                <h2>What is Data Science?</h2>
+                <p>Data science is a field that combines statistical techniques, computational tools, and domain
+                    expertise to extract knowledge and insights from structured and unstructured data. It enables
+                    data-driven decision-making and predictive modeling across various industries.</p>
+                <p>From understanding customer behavior to optimizing business operations and building recommendation
+                    systems, data science plays a key role in modern digital transformation.</p>
+
+                <h3>Why is Data Science Important?</h3>
+                <p>Data science is essential because it helps organizations:</p>
+                <ul>
+                    <li>Make informed decisions based on data analysis and modeling.</li>
+                    <li>Identify patterns, trends, and correlations that are not immediately visible.</li>
+                    <li>Build intelligent systems, such as recommendation engines and predictive tools.</li>
+                </ul>
+
+                <h3>Key Steps in the Data Science Workflow</h3>
+                <ol>
+                    <li><strong>Problem Definition:</strong> Identify the business or research problem and understand
+                        the goals.</li>
+                    <li><strong>Data Collection:</strong> Gather relevant data from sources such as databases, APIs, or
+                        web scraping.</li>
+                    <li><strong>Data Cleaning:</strong> Preprocess data by handling missing values, correcting errors,
+                        and formatting.</li>
+                    <li><strong>Exploratory Data Analysis (EDA):</strong> Visualize and summarize data to find initial
+                        patterns and insights.</li>
+                    <li><strong>Feature Engineering:</strong> Create new features or transform existing ones to improve
+                        model performance.</li>
+                    <li><strong>Modeling:</strong> Apply machine learning or statistical algorithms to predict or
+                        classify outcomes.</li>
+                    <li><strong>Evaluation:</strong> Assess model accuracy using metrics like precision, recall, and
+                        F1-score.</li>
+                    <li><strong>Deployment:</strong> Integrate the model into production systems or present findings via
+                        dashboards.</li>
+                </ol>
+
+                <h3>Popular Tools in Data Science</h3>
+                <ul>
+                    <li><strong>Programming Languages:</strong> Python, R</li>
+                    <li><strong>Libraries:</strong> NumPy, Pandas, Scikit-learn, TensorFlow, Matplotlib</li>
+                    <li><strong>Visualization Tools:</strong> Tableau, Power BI, Seaborn, Plotly</li>
+                    <li><strong>Data Storage:</strong> SQL, NoSQL, Hadoop</li>
+                </ul>
+
+                <h3>Common Applications of Data Science</h3>
+                <ul>
+                    <li><strong>Predictive Analytics:</strong> Forecasting sales, demand, or trends using historical
+                        data.</li>
+                    <li><strong>Natural Language Processing:</strong> Sentiment analysis, chatbots, and language
+                        translation.</li>
+                    <li><strong>Computer Vision:</strong> Image recognition, object detection, and facial recognition.
+                    </li>
+                    <li><strong>Recommendation Systems:</strong> Product or content suggestions like those used by
+                        Netflix or Amazon.</li>
+                </ul>
+
+                <h3>Real-World Example</h3>
+                <p>Here's a basic example of using Python and Pandas to load and summarize a dataset:</p>
+                <pre>
+import pandas as pd
+
+# Load a sample dataset
+df = pd.read_csv("data.csv")
+
+# Display basic information
+print(df.info())
+
+# Show average of numeric columns
+print(df.describe())
+        </pre>
+
+                <h3>Before and After Data Cleaning</h3>
+                <p>Example showing improvement in data structure:</p>
+                <pre>
+Before:
+Name, Age, Salary
+John, , 50000
+Alice, 29, 
+Bob, 35, 55000
+
+After:
+Name, Age, Salary
+John, 30, 50000
+Alice, 29, 52000
+Bob, 35, 55000
+        </pre>
+            </div>
+            <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+        </div>
+
+        <!-- unit2 -->
+<div id="unit2" class="unit">
+    <h1>Unit 2: Handling Missing Data in Data Science</h1>
+    <h2>Understanding Missing Data</h2>
+    <p>Missing data is a common challenge in real-world data science projects. It occurs when no value is recorded for a feature in a dataset. Causes include human error, system failures, or intentional non-responses. Properly handling missing data is crucial to ensure the validity and accuracy of your machine learning models and statistical analyses.</p>
+
+    <h3>Types of Missing Data</h3>
+    <p>Understanding the mechanism behind missing data helps determine the best handling strategy. The three main types are:</p>
+    <ul>
+        <li><strong>MCAR (Missing Completely at Random):</strong> Data is missing independently of both observed and unobserved values. For example, a sensor fails randomly during data logging.</li>
+        <li><strong>MAR (Missing at Random):</strong> Missingness is related to observed data, but not the missing value itself. For instance, older survey participants may skip income-related questions.</li>
+        <li><strong>MNAR (Missing Not at Random):</strong> Missingness depends on the value itself. For example, high-income individuals may intentionally omit their income.</li>
+    </ul>
+
+    <h3>Strategies for Handling Missing Data</h3>
+    <p>In data science, handling missing values correctly can improve model performance and interpretability. Common techniques include:</p>
+    
+    <ul>
+        <li><strong>Deletion Methods:</strong> 
+            <ul>
+                <li><strong>Listwise Deletion:</strong> Removes entire rows with any missing value. Best used when missingness is minimal and MCAR.</li>
+                <li><strong>Pairwise Deletion:</strong> Uses all available data for each calculation, preserving more data but potentially introducing bias.</li>
+            </ul>
+        </li>
+
+        <li><strong>Imputation Methods:</strong>
+            <ul>
+                <li><strong>Mean/Median Imputation:</strong> Fills missing values with the column mean or median. Suitable for numeric features under MCAR or MAR.</li>
+                <li><strong>Regression Imputation:</strong> Predicts missing values using regression models based on correlated features.</li>
+                <li><strong>Multiple Imputation:</strong> Creates multiple complete datasets with different imputations, analyzes each, then aggregates results for robust inference.</li>
+                <li><strong>KNN Imputation:</strong> Uses the k-nearest neighbors algorithm to impute based on similar instances. Works well for datasets with non-linear patterns.</li>
+            </ul>
+        </li>
+
+        <li><strong>Model-Based Methods:</strong>
+            <ul>
+                <li><strong>Expectation-Maximization (EM):</strong> Iteratively estimates missing values and updates model parameters, commonly used in statistical modeling.</li>
+                <li><strong>Bayesian Imputation:</strong> Applies Bayesian inference to model uncertainty in imputed values using prior distributions.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Example: Imputing Missing Values in a Dataset</h3>
+    <p>Consider a dataset used for predicting salaries based on age and experience:</p>
+    <pre>
+Age: [25, 30, 35, 40, 45, NaN, 55, 60, NaN]
+Salary: [50000, 60000, 70000, 80000, NaN, 100000, 120000, 130000, 140000]
+    </pre>
+
+    <h4>1. Mean Imputation:</h4>
+    <pre>
+Mean Salary = (50000 + 60000 + 70000 + 80000 + 100000 + 120000 + 130000 + 140000) / 8 = 87,500
+    </pre>
+    <p>Missing salary entries can be filled with 87,500.</p>
+
+    <h4>2. Regression Imputation:</h4>
+    <p>Build a regression model: <code>Salary = 2000 * Age + 5000</code>. Predict missing salaries using known ages.</p>
+
+    <h4>3. Multiple Imputation:</h4>
+    <p>Create multiple versions of the dataset with slightly different imputed values. Train models on each and combine the predictions for better generalization.</p>
+
+    <h3>Choosing the Right Strategy</h3>
+    <p>There is no one-size-fits-all approach. The strategy depends on the amount and type of missing data, data distribution, and the modeling goals. Always analyze the pattern of missingness first using tools like heatmaps, missingness matrices, or correlation tests (e.g., Little's MCAR test).</p>
+
+    <p>Proper handling of missing data can prevent bias, improve model accuracy, and help draw better conclusions in your data science projects.</p>
+
+    <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+</div>
+<div id="unit3" class="unit">
+    <h1>Unit 3: Correcting Data Types</h1>
+
+    <h2>Why Correct Data Types?</h2>
+    <p>In data science, ensuring the correct data types is crucial for accurate analysis and model performance.
+        Incorrect data types—such as storing numeric or date values as strings—can lead to calculation errors,
+        inefficient memory usage, and faulty machine learning predictions.</p>
+    <p>For instance, if dates are stored as strings, sorting, filtering, or time-series operations may not work as intended.
+        Similarly, treating a categorical variable as numeric can mislead statistical models.</p>
+
+    <h3>Common Data Type Issues in Data Science</h3>
+    <p>Some common problems related to data types include:</p>
+    <ul>
+        <li><strong>Incorrect Data Type Assignment:</strong> Assigning a wrong type like a number as a string.</li>
+        <li><strong>Dates Stored as Text:</strong> Makes it hard to extract date features (day, month, etc.).</li>
+        <li><strong>Incorrect Categorical Representation:</strong> Storing categories as plain text instead of `category` type.</li>
+        <li><strong>Type Mismatches:</strong> Mixing integers and strings in a column.</li>
+        <li><strong>Loss of Precision:</strong> When float values are converted incorrectly to integers.</li>
+        <li><strong>Inconsistent Date Formats:</strong> Using mixed formats like `MM/DD/YYYY` and `YYYY-MM-DD` in the same column.</li>
+        <li><strong>String-Numeric Confusion:</strong> Numeric values stored as text due to symbols like `$` or `,`.</li>
+    </ul>
+
+    <h3>How to Correct Data Types in Data Science</h3>
+    <p>Here are some common techniques used during data preprocessing:</p>
+    <ol>
+        <li>
+            <strong>Use Type Conversion Functions</strong>
+            <pre><code>df['age'] = df['age'].astype(int)  # Convert to integer
+df['price'] = df['price'].astype(float)  # Convert to float
+df['is_active'] = df['is_active'].astype(str)  # Convert to string
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Standardize Date Formats</strong>
+            <pre><code>df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')  # Convert string to datetime
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Convert Categorical Data</strong>
+            <pre><code>df['gender'] = df['gender'].astype('category')  # Efficient storage & better ML model performance
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Handle Missing Values Before Conversion</strong>
+            <pre><code>df['age'] = df['age'].fillna(df['age'].mean()).astype(int)
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Clean and Convert Strings with Symbols</strong>
+            <pre><code>df['price'] = df['price'].apply(lambda x: float(x.replace('$', '').replace(',', '')))
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Detect and Handle Mixed Types</strong>
+            <pre><code>df['amount'] = pd.to_numeric(df['amount'], errors='coerce')  # Invalid entries become NaN
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Ensure Consistent String Formatting</strong>
+            <pre><code>df['name'] = df['name'].str.strip().str.title()
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Optimize Memory with Proper Numeric Types</strong>
+            <pre><code>df['age'] = df['age'].astype('int8')  # Saves memory if range is small
+df['sales'] = df['sales'].astype('float32')
+</code></pre>
+        </li>
+
+        <li>
+            <strong>Convert Based on Data Distribution</strong>
+            <pre><code>df['quantity'] = df['quantity'].astype('int16')  # Choose type based on value range
+</code></pre>
+        </li>
+    </ol>
+
+    <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+</div>
+<div id="unit4" class="unit">
+    <h1>Unit 4: Removing Duplicates</h1>
+
+    <h2>What are Duplicate Records?</h2>
+    <p>Duplicate records occur when the same data appears more than once in a dataset. These redundancies can arise due to multiple data entry points, merging datasets, or human errors. Identifying and removing duplicates is crucial for ensuring data quality.</p>
+
+    <h3>Why are Duplicates a Problem?</h3>
+    <p>Duplicates can lead to misleading analysis and biased results. Inconsistent data, inflated counts, and inaccurate predictions are some of the issues caused by duplicate records. Clean, unique data ensures better model performance and decision-making.</p>
+
+    <h4>Consequences of Duplicate Records</h4>
+    <ul>
+        <li><strong>Inaccurate Analysis</strong>: Duplicates can skew statistical summaries, leading to incorrect conclusions.</li>
+        <li><strong>Inefficient Storage</strong>: Redundant records consume additional memory and processing time.</li>
+        <li><strong>Reduced Model Accuracy</strong>: Machine learning models trained on duplicate data may overfit or misclassify.</li>
+    </ul>
+
+    <h3>How to Detect Duplicates in Python (Pandas)</h3>
+    <p>Using <code>pandas</code>, you can easily find and examine duplicate records in your DataFrame.</p>
+    <pre><code>
+# Detect all duplicate rows
+duplicates = df[df.duplicated()]
+
+# Detect duplicates based on specific columns
+duplicates_specific = df[df.duplicated(subset=['name', 'email'])]
+    </code></pre>
+
+    <h3>How to Remove Duplicates</h3>
+    <p>Pandas provides simple methods to remove duplicates. By default, it keeps the first occurrence and drops the rest.</p>
+
+    <ul>
+        <li><strong>Remove all duplicate rows</strong></li>
+        <pre><code>
+# Remove complete duplicates
+df_cleaned = df.drop_duplicates()
+        </code></pre>
+
+        <li><strong>Remove duplicates based on specific columns</strong></li>
+        <pre><code>
+# Remove duplicates based on specific columns (e.g., 'email')
+df_unique = df.drop_duplicates(subset='email')
+        </code></pre>
+
+        <li><strong>Keep last occurrence</strong></li>
+        <pre><code>
+# Keep last instead of first
+df_latest = df.drop_duplicates(subset='email', keep='last')
+        </code></pre>
+    </ul>
+
+    <h3>Visualizing Duplicates</h3>
+    <p>Although duplicates aren't visualized directly, you can explore data using charts and summaries to identify anomalies or clusters of repeated values.</p>
+
+    <pre><code>
+# Summary statistics
+print(df.describe())
+
+# Count duplicate rows
+print(df.duplicated().sum())
+    </code></pre>
+
+    <h3>Best Practices for Handling Duplicates</h3>
+    <ul>
+        <li><strong>Inspect Before Deletion</strong>: Always review duplicates before removing to avoid unintentional data loss.</li>
+        <li><strong>Define Uniqueness</strong>: Know which columns define uniqueness in your dataset.</li>
+        <li><strong>Audit and Log</strong>: Keep a log of removed duplicates for traceability and debugging.</li>
+        <li><strong>Standardize Input</strong>: Use consistent formats (e.g., lowercase emails) before checking for duplicates.</li>
+    </ul>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+        <li><strong>E-commerce</strong>: Removing duplicate customer entries helps prevent multiple discount uses and ensures accurate user profiling.</li>
+        <li><strong>Healthcare</strong>: Ensuring patient records are unique is essential for proper diagnosis and treatment tracking.</li>
+        <li><strong>Finance</strong>: Duplicate transactions can lead to incorrect account balances and flawed audits.</li>
+        <li><strong>Marketing</strong>: Duplicate leads inflate campaign effectiveness and mislead conversion metrics.</li>
+    </ul>
+
+    <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+</div>
+
+
+
+<div id="unit5" class="unit">
+    <h1>Unit 5: Standardizing Data in Data Science</h1>
+    <p>Explore how data standardization enhances data preprocessing, model accuracy, and feature engineering in data science workflows.</p>
+
+    <h2>What is Data Standardization?</h2>
+    <p>In data science, standardization refers to transforming features into a common format or scale, ensuring compatibility across various sources and improving algorithmic performance. This step is vital during data preprocessing to prevent bias in models caused by differing feature scales or formats.</p>
+
+    <h3>Key Concepts in Data Standardization</h3>
+    <ul>
+        <li><strong>Numerical Feature Scaling</strong>: Transforming numeric features to a standard range or distribution ensures each variable contributes equally in model training.</li>
+        <li><strong>Categorical Encoding</strong>: Categorical values are transformed into numerical representations (e.g., One-Hot Encoding, Label Encoding) to make them usable for ML models.</li>
+        <li><strong>Date-Time Parsing</strong>: Standardizing time formats (e.g., "YYYY-MM-DD") enables time series forecasting, seasonality detection, and chronological ordering in analytics.</li>
+        <li><strong>Time Series Normalization</strong>: For sequential datasets, standardizing values over time enables reliable trend analysis, anomaly detection, and predictive modeling.</li>
+    </ul>
+
+    <h3>Why is Standardization Crucial in Data Science?</h3>
+    <ul>
+        <li><strong>Uniform Input for Models</strong>: Many ML algorithms assume normally distributed or similarly scaled inputs for optimal convergence.</li>
+        <li><strong>Enhanced Pipeline Performance</strong>: Integrating preprocessing steps like scaling into ML pipelines streamlines workflows and reproducibility.</li>
+        <li><strong>Improved Feature Interpretability</strong>: Consistent formats enable easier feature comparison and importance evaluation during EDA (Exploratory Data Analysis).</li>
+        <li><strong>Better Handling of Skewed Data</strong>: Reduces model sensitivity to outliers and skewed features, improving generalization.</li>
+    </ul>
+
+    <h3>Standardization Techniques</h3>
+    <ul>
+        <li><strong>Min-Max Scaling</strong>: Normalizes values between 0 and 1, useful when features have known bounds.</li>
+        <pre>
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
+
+df = pd.DataFrame({'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]})
+scaler = MinMaxScaler()
+df_scaled = scaler.fit_transform(df)
+print(df_scaled)
+        </pre>
+
+        <li><strong>Z-Score Standardization</strong>: Centers data by mean and scales to unit variance; works well for Gaussian-like distributions.</li>
+        <pre>
+from sklearn.preprocessing import StandardScaler
+
+df = pd.DataFrame({'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]})
+scaler = StandardScaler()
+df_standardized = scaler.fit_transform(df)
+print(df_standardized)
+        </pre>
+
+        <li><strong>Log Transformation</strong>: Used to reduce skewness in data such as financial or exponential growth patterns.</li>
+        <pre>
+import numpy as np
+
+df = pd.DataFrame({'income': [1000, 1500, 3000, 4500, 10000]})
+df['log_income'] = np.log(df['income'])
+print(df)
+        </pre>
+    </ul>
+
+    <h3>Advanced Standardization Techniques</h3>
+    <ul>
+        <li><strong>Robust Scaling</strong>: Utilizes median and IQR, ideal for data with outliers.</li>
+        <pre>
+from sklearn.preprocessing import RobustScaler
+
+df = pd.DataFrame({'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]})
+scaler = RobustScaler()
+df_robust = scaler.fit_transform(df)
+print(df_robust)
+        </pre>
+
+        <li><strong>Quantile Transformation</strong>: Maps data to a uniform or normal distribution, particularly useful for highly skewed features.</li>
+        <pre>
+from sklearn.preprocessing import QuantileTransformer
+
+df = pd.DataFrame({'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]})
+scaler = QuantileTransformer(output_distribution='normal')
+df_quantile = scaler.fit_transform(df)
+print(df_quantile)
+        </pre>
+    </ul>
+
+    <h3>Common Challenges in Data Standardization</h3>
+    <ul>
+        <li><strong>Missing Values</strong>: Impute or drop missing data before applying standardization methods to avoid errors.</li>
+        <li><strong>Unit Inconsistencies</strong>: Always ensure that data units are compatible (e.g., avoid mixing cm and m).</li>
+        <li><strong>Inappropriate Scaling</strong>: Choose the method wisely based on the model type and data distribution.</li>
+        <li><strong>Loss of Context</strong>: Standardized values lose their real-world interpretability; store original data if needed for business insights.</li>
+    </ul>
+
+    <h3>Real-World Example: Preprocessing Before Model Training</h3>
+    <p>Standardizing height and weight before training ensures balanced feature contribution.</p>
+    <pre>
+from sklearn.preprocessing import StandardScaler
+
+data = {'height_cm': [150, 160, 170, 180, 190], 'weight_kg': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+scaler = StandardScaler()
+df_standardized = scaler.fit_transform(df)
+print(df_standardized)
+    </pre>
+
+    <h3>Applications of Data Standardization in Data Science</h3>
+    <ul>
+        <li><strong>ML Model Input Preparation</strong>: Ensures numeric stability and faster convergence in models like SVM, logistic regression, and neural networks.</li>
+        <li><strong>Time Series Forecasting</strong>: Standardizing inputs helps in seasonal trend detection and cross-time-window analysis.</li>
+        <li><strong>EDA and Visualization</strong>: Helps compare feature distributions on a common scale for meaningful visualizations.</li>
+        <li><strong>Clustering and PCA</strong>: Algorithms like K-Means and Principal Component Analysis assume equal feature scales.</li>
+        <li><strong>Cross-Domain Data Fusion</strong>: Enables merging data from varied industries (e.g., health + finance) with aligned formats.</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+    <p>Data standardization is a cornerstone of effective data preprocessing in data science. It ensures that inputs are compatible, interpretable, and optimized for modeling. Whether for exploratory analysis or predictive modeling, mastering standardization enhances reliability, reproducibility, and scalability of your data workflows.</p>
+
+    <b><h1>🎉 Congratulations! You’ve completed the Data Science Preprocessing Module!</h1></b>
+    <button><a href="{{url_for('theoryquiz')}}">Start Quiz</a></button>
+</div>
+
+
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+
+</html>

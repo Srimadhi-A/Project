@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Manipulation and Cleaning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!-- unit1 -->
+<div id="unit1" class="unit active">
+    <div class="container">
+        <h1>Digital Marketing Fundamentals</h1>
+        <p>Learn the essentials of digital marketing through five structured units.</p>
+        <h2>Course Overview</h2>
+        <p>This module introduces you to the world of digital marketing — an essential skill in today’s digital-first business environment.</p>
+        <p>Each unit will guide you through key components such as SEO, social media marketing, email marketing, content strategy, and analytics.</p>
+        
+        <h1>Unit 1: Introduction to Digital Marketing</h1>
+        <h2>What is Digital Marketing?</h2>
+        <p>Digital marketing refers to the use of online platforms, tools, and strategies to promote products or services. It leverages channels like search engines, websites, social media, email, and mobile apps to reach current and potential customers.</p>
+        <p>It plays a vital role in helping businesses connect with audiences, increase brand visibility, and drive growth in the digital age.</p>
+
+        <h3>Why is Digital Marketing Important?</h3>
+        <p>Digital marketing is essential for several reasons:</p>
+        <ul>
+            <li>It provides measurable results through analytics and reporting.</li>
+            <li>It allows for targeted audience segmentation and personalized campaigns.</li>
+            <li>It’s often more cost-effective than traditional marketing.</li>
+            <li>It helps build brand awareness, customer trust, and online presence.</li>
+        </ul>
+
+        <h3>Key Components of Digital Marketing</h3>
+        <p>Here are the main pillars of digital marketing:</p>
+        <ol>
+            <li><strong>Search Engine Optimization (SEO):</strong> Enhancing your website's visibility on search engines to increase organic traffic.</li>
+            <li><strong>Content Marketing:</strong> Creating and distributing valuable, relevant content to attract and retain a clearly defined audience.</li>
+            <li><strong>Social Media Marketing:</strong> Using platforms like Facebook, Instagram, and LinkedIn to engage with audiences and promote brands.</li>
+            <li><strong>Email Marketing:</strong> Sending targeted messages to customers through email to drive engagement or sales.</li>
+            <li><strong>Pay-Per-Click Advertising (PPC):</strong> Running paid ads on platforms like Google Ads or social media to drive immediate traffic.</li>
+            <li><strong>Affiliate Marketing:</strong> Partnering with affiliates to promote products and earn commissions for conversions.</li>
+            <li><strong>Analytics and Reporting:</strong> Tracking campaign performance using tools like Google Analytics to inform strategy and optimize results.</li>
+        </ol>
+
+        <h3>Search Engine Optimization (SEO)</h3>
+        <p>SEO is the process of improving your website to increase its visibility for relevant searches. Key techniques include:</p>
+        <ul>
+            <li><strong>Keyword Research:</strong> Identifying the search terms your audience is using.</li>
+            <li><strong>On-Page SEO:</strong> Optimizing content, headers, and meta tags.</li>
+            <li><strong>Technical SEO:</strong> Enhancing site speed, mobile-friendliness, and structured data.</li>
+        </ul>
+
+        <h3>Social Media Marketing</h3>
+        <p>Social media allows brands to interact directly with their audience. Strategies include:</p>
+        <ul>
+            <li><strong>Platform Selection:</strong> Choosing platforms like Instagram, Twitter, or LinkedIn based on your audience.</li>
+            <li><strong>Content Strategy:</strong> Posting engaging content such as videos, stories, and polls.</li>
+            <li><strong>Paid Campaigns:</strong> Running targeted ads to increase reach and conversions.</li>
+        </ul>
+
+        <h3>Content Marketing</h3>
+        <p>Content marketing builds trust and authority with your audience by offering value. Tactics include:</p>
+        <ul>
+            <li><strong>Blogging:</strong> Writing articles optimized for SEO.</li>
+            <li><strong>Videos:</strong> Creating tutorials, product reviews, or explainer videos.</li>
+            <li><strong>Ebooks and Guides:</strong> Offering downloadable resources for lead generation.</li>
+        </ul>
+
+        <h3>Email Marketing</h3>
+        <p>Email marketing is an effective channel for nurturing leads and maintaining customer relationships. Techniques include:</p>
+        <ul>
+            <li><strong>Segmentation:</strong> Grouping subscribers based on interests or behaviors.</li>
+            <li><strong>Personalization:</strong> Using customer data to personalize subject lines and messages.</li>
+            <li><strong>A/B Testing:</strong> Comparing different email versions to optimize performance.</li>
+        </ul>
+
+        <h3>Digital Marketing Example</h3>
+        <p>Here is an example of a digital marketing strategy implementation:</p>
+        <pre>
+Before:
+Website traffic: Low
+Social media presence: Inactive
+Customer engagement: Minimal
+
+After:
+Website traffic: +80% via SEO improvements
+Social media: Daily posts and stories increasing engagement
+Email campaigns: 30% open rate and 5% conversion on weekly newsletters
+        </pre>
+    </div>
+    <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+</div>
+<!-- unit2 -->
+<div id="unit2" class="unit">
+    <h1>Unit 2: Handling Incomplete Marketing Data</h1>
+    <h2>Understanding Data Gaps in Digital Marketing</h2>
+    <p>In digital marketing, data plays a crucial role in understanding audience behavior, measuring campaign effectiveness, and making informed decisions. However, marketers often encounter incomplete or missing data due to factors such as tracking issues, user privacy settings, or integration problems between platforms. This unit focuses on identifying types of missing marketing data and effective strategies to handle these gaps.</p>
+
+    <h3>Types of Data Gaps</h3>
+    <p>Not all missing data is created equal. Understanding the reason behind the missingness helps in choosing the right strategy. In digital marketing, data gaps can be categorized as:</p>
+
+    <ul>
+        <li><strong>Tracking Errors:</strong> These occur when tracking tools like Google Analytics or Facebook Pixel fail to capture user data due to misconfiguration, browser restrictions, or ad blockers.</li>
+        <li><strong>Consent-Based Gaps:</strong> Data might be missing if users do not give consent to cookies or tracking under regulations like GDPR or CCPA. This can lead to missing behavioral data from specific segments.</li>
+        <li><strong>Platform Discrepancies:</strong> Inconsistencies between platforms (e.g., Facebook Ads vs. Google Analytics) often result in missing or mismatched data due to different attribution models or delays in syncing.</li>
+    </ul>
+
+    <h3>Strategies to Handle Incomplete Marketing Data</h3>
+    <p>Marketers can use various strategies to deal with incomplete data while minimizing bias and maintaining accuracy in insights:</p>
+
+    <ul>
+        <li><strong>Data Cleaning & Validation:</strong> Regularly auditing data pipelines helps identify broken tracking scripts, misconfigured UTM parameters, or form field mismatches that can cause data loss.</li>
+        <li><strong>Using Defaults or Fallbacks:</strong> For forms or analytics setups, using default values (e.g., “unknown” for source) can help preserve usability of the dataset while acknowledging the gap.</li>
+        <li><strong>Segmentation-Based Imputation:</strong> Estimate missing values using similar user segments. For example, if conversion source is missing, it might be imputed based on average behavior of users from the same geographic region or landing page.</li>
+        <li><strong>Attribution Modeling:</strong> Use tools like Google Ads Data-Driven Attribution or Facebook Conversion APIs to estimate how missing user interactions may have contributed to conversions.</li>
+        <li><strong>First-Party Data Collection:</strong> Reduce reliance on third-party cookies by encouraging users to log in or submit forms, which helps collect more accurate data directly.</li>
+    </ul>
+
+    <h3>Example: Filling Gaps in a Campaign Report</h3>
+    <p>Consider the following scenario: you're analyzing a campaign where 20% of the traffic sources are marked as "(direct) / (none)" in Google Analytics.</p>
+
+    <h4>1. Using Referral Paths:</h4>
+    <p>Check server logs or landing page patterns to deduce potential sources. If many users land directly on a blog article promoted on LinkedIn, it's likely the missing source is LinkedIn.</p>
+
+    <h4>2. User Segmentation Imputation:</h4>
+    <p>Group users by landing pages or devices and assign probable sources based on high-confidence user segments.</p>
+
+    <h4>3. Predictive Modeling:</h4>
+    <p>Use regression or machine learning models trained on complete data to predict the likely source, device, or campaign for users with missing fields.</p>
+
+    <h3>Choosing the Right Approach</h3>
+    <p>The best method depends on your marketing goals, platform limitations, and available resources. For compliance-heavy industries, focusing on privacy-first analytics is key. For performance marketing, combining multiple models can provide stronger insights into campaign ROI despite missing data.</p>
+    
+    <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+</div>
+<!-- unit 3 -->
+<div id="unit3" class="unit">
+    <h1>Unit 3: Correcting Data Types in Digital Marketing</h1>
+
+    <h2>Why Correct Data Types?</h2>
+    <p>
+        In digital marketing, incorrect data types can result in flawed analysis—such as treating numeric ad budgets as strings, or storing campaign dates in inconsistent formats. Properly assigning data types ensures accurate performance tracking, audience segmentation, and reporting.
+        <br><br>
+        For example, if click-through rates (CTR) are stored as text instead of numeric values, calculations like averages or trends over time won’t work correctly. Similarly, if campaign launch dates are stored as plain text, you won’t be able to filter campaigns by date or sort them chronologically.
+    </p>
+
+    <h3>Common Data Type Issues in Digital Marketing</h3>
+    <ul>
+        <li>Incorrect assignment of numeric values (e.g., storing ad spend as "1000" instead of a float)</li>
+        <li>Campaign dates stored as plain text</li>
+        <li>Confusion between string and numeric data (e.g., engagement rate)</li>
+        <li>Inconsistent formatting of region or country codes</li>
+        <li>Type mismatch when merging data from different marketing platforms</li>
+        <li>Loss of precision in metrics like CPC (Cost Per Click)</li>
+        <li>Improper categorization of campaign types</li>
+    </ul>
+
+    <h3>How to Correct Data Types</h3>
+    <ol>
+        <li>Use Type Conversion Functions</li>
+        <pre>df['ad_spend'] = df['ad_spend'].apply(float)    # Convert ad spend to float
+df['clicks'] = df['clicks'].apply(int)         # Convert clicks to integer
+df['campaign_name'] = df['campaign_name'].apply(str)  # Ensure names are strings
+        </pre>
+
+        <li>Reformat Campaign Dates</li>
+        <pre>df['launch_date'] = pd.to_datetime(df['launch_date'], format='%Y-%m-%d')  # Standardize date format</pre>
+
+        <li>Convert Campaign Types to Categorical Data</li>
+        <pre>df['campaign_type'] = df['campaign_type'].astype('category')</pre>
+
+        <li>Handle Missing Engagement Data Before Conversion</li>
+        <pre>df['engagement_rate'] = df['engagement_rate'].fillna(0).astype(float)</pre>
+
+        <li>Apply Complex Conversions for Monetary Values</li>
+        <pre>df['budget'] = df['budget'].apply(lambda x: float(x.replace('$', '').replace(',', '')))</pre>
+
+        <li>Detect and Handle Mixed-Type Columns</li>
+        <pre>df['cost_per_click'] = pd.to_numeric(df['cost_per_click'], errors='coerce')</pre>
+
+        <li>Use astype() for Memory Optimization</li>
+        <pre>df['clicks'] = df['clicks'].astype('int16')</pre>
+
+        <li>Standardize Campaign Name Formatting</li>
+        <pre>df['campaign_name'] = df['campaign_name'].str.strip().str.title()</pre>
+
+        <li>Reduce Data Size for Large Datasets</li>
+        <pre>df['impressions'] = df['impressions'].astype('int32')</pre>
+
+        <li>Convert Data Based on Actual Values</li>
+        <pre>df['region_code'] = df['region_code'].astype('category')</pre>
+    </ol>
+
+    <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+</div>
+<div id="unit4" class="unit">
+    <h1>Unit 4: Removing Duplicates</h1>
+    <h2>What is Duplicate Data?</h2>
+    <p>Duplicate data refers to repeated or redundant entries in a dataset, such as the same customer being listed more than once. In digital marketing, this can result from importing contact lists, tracking user behavior across multiple devices, or integrating data from different marketing tools.</p>
+
+    <h3>Why is Duplicate Data a Problem?</h3>
+    <p>Duplicate data can mislead marketing strategies and performance analysis. It inflates audience sizes, leads to over-reporting in campaigns, increases email marketing costs, and negatively affects personalization and segmentation.</p>
+
+    <h4>Consequences of Ignoring Duplicate Data</h4>
+    <ul>
+        <li><strong>Misleading Metrics</strong>: Repeated entries can inflate impressions, clicks, and conversions, leading to incorrect ROI analysis.</li>
+        <li><strong>Wasted Budget</strong>: Duplicate contacts can lead to sending multiple emails or ads to the same user, increasing costs without real value.</li>
+        <li><strong>Poor User Experience</strong>: Users receiving multiple identical communications may perceive the brand as unprofessional or spammy.</li>
+    </ul>
+
+    <h3>Sources of Duplicate Data in Digital Marketing</h3>
+    <ul>
+        <li><strong>Lead Forms</strong>: Users submitting forms multiple times or from different campaigns.</li>
+        <li><strong>CRM and Tool Integrations</strong>: When syncing data from platforms like HubSpot, Mailchimp, or Google Ads, duplicate entries may be created.</li>
+        <li><strong>Multi-channel Tracking</strong>: The same user interacting with your brand via different channels or devices may be logged multiple times.</li>
+    </ul>
+
+    <h3>How to Handle Duplicate Data</h3>
+    <p>There are several techniques for handling duplicate data in digital marketing databases. The method depends on the type of data, business needs, and the tools you're using.</p>
+
+    <h4>1. Removing Duplicates in Pandas (Python)</h4>
+    <p>If you're working with campaign or customer data in Python, you can use pandas to easily remove duplicates:</p>
+    <pre><code>
+# Remove duplicates based on email
+df = df.drop_duplicates(subset='email', keep='first')
+    </code></pre>
+
+    <h4>2. Deduplication in Email Marketing Tools</h4>
+    <p>Most email marketing platforms like Mailchimp, Constant Contact, or Sendinblue automatically remove duplicate contacts based on email or phone number. However, it's good practice to manually review and clean lists before importing.</p>
+
+    <h4>3. Data Cleaning in Google Sheets / Excel</h4>
+    <p>For marketers working with spreadsheets, use built-in deduplication features:</p>
+    <pre><code>
+# Excel: Use "Remove Duplicates" under Data tab
+# Google Sheets: =UNIQUE(A2:A100) to get a list of unique entries
+    </code></pre>
+
+    <h4>4. Merging and Unifying Contacts</h4>
+    <p>In CRMs, use contact merging features to unify profiles. This is especially useful when the same lead uses multiple identifiers (e.g., different emails or phone numbers).</p>
+
+    <h3>Best Practices for Removing Duplicates</h3>
+    <ul>
+        <li><strong>Use Unique Identifiers</strong>: Always collect unique fields like email, phone, or customer ID to differentiate users.</li>
+        <li><strong>Normalize Data</strong>: Ensure consistent formatting (e.g., lowercasing emails) before checking for duplicates.</li>
+        <li><strong>Automate Cleanups</strong>: Set up periodic deduplication workflows using marketing automation tools.</li>
+        <li><strong>Monitor Integrations</strong>: Review how external tools import and sync data to prevent duplication at the source.</li>
+    </ul>
+
+    <h3>Visualizing Duplicate Records</h3>
+    <p>Using Python libraries like pandas or tools like Power BI/Tableau can help visualize where duplicates occur in your marketing data. For example:</p>
+    <pre><code>
+# Count duplicate email entries
+df['email'].value_counts().head()
+    </code></pre>
+
+    <h3>Real-World Applications in Digital Marketing</h3>
+    <ul>
+        <li><strong>Email Campaigns</strong>: Ensuring clean subscriber lists reduces bounce rates and spam flags.</li>
+        <li><strong>Audience Segmentation</strong>: Accurate segments rely on clean, deduplicated data to avoid over/under-targeting.</li>
+        <li><strong>Attribution Models</strong>: Duplicate entries can distort multi-touch attribution, affecting insights.</li>
+        <li><strong>Ad Targeting</strong>: Avoiding duplicate users in retargeting ensures efficient ad spend and prevents user fatigue.</li>
+    </ul>
+
+    <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+</div>
+<div id="unit5" class="unit">
+    <h1>Unit 5: Standardizing Digital Marketing Data</h1>
+    <p>Learn how to standardize marketing data to ensure consistency and improve campaign insights.</p>
+
+    <h2>What is Data Standardization in Digital Marketing?</h2>
+    <p>In digital marketing, data standardization refers to the process of converting data from multiple platforms into a consistent format. Since marketing teams collect data from sources like Google Ads, Facebook, email platforms, and CRM systems, standardizing ensures accurate analysis and reporting.</p>
+
+    <h3>Key Concepts in Marketing Data Standardization</h3>
+    <ul>
+        <li><strong>Unifying Channel Metrics</strong>: Standardizing KPIs like impressions, clicks, and conversions across platforms helps compare and evaluate campaigns uniformly.</li>
+        <li><strong>Consistent Naming Conventions</strong>: Campaigns, UTM parameters, and ad group names should follow standardized naming formats for easier aggregation and reporting.</li>
+        <li><strong>Audience Segment Alignment</strong>: Aligning audience categories (e.g., age ranges, interests) across channels ensures consistent targeting and analysis.</li>
+        <li><strong>Date & Time Format Standardization</strong>: Marketing data may be timestamped in different time zones or formats, which must be standardized to accurately measure performance over time.</li>
+    </ul>
+
+    <h3>Why Standardizing Marketing Data is Important</h3>
+    <p>Standardized marketing data leads to more reliable insights and strategic decisions. Benefits include:</p>
+    <ul>
+        <li><strong>Cross-Channel Performance Analysis</strong>: Helps you compare ROI, engagement, and reach across different platforms like Google, Facebook, Instagram, and email.</li>
+        <li><strong>Automation in Reporting</strong>: Enables automated dashboards and reports by aligning data schemas and naming patterns.</li>
+        <li><strong>Improved Audience Insights</strong>: Standardization ensures your segmentation and personalization strategies are based on clean, consistent data.</li>
+        <li><strong>Better Budget Allocation</strong>: You can identify high-performing channels and reallocate budgets more efficiently.</li>
+    </ul>
+
+    <h3>Methods for Standardizing Digital Marketing Data</h3>
+    <ul>
+        <li><strong>UTM Parameter Standardization</strong>: Creating rules for UTM tags (e.g., using `utm_source=facebook` instead of `FB`) ensures clean campaign tracking.</li>
+<pre>
+# Example using Python to clean UTM parameters
+import pandas as pd
+
+data = {'utm_source': ['FB', 'facebook', 'Google', 'GOOGLE']}
+df = pd.DataFrame(data)
+
+# Standardize UTM sources
+df['utm_source'] = df['utm_source'].str.lower().replace({'fb': 'facebook', 'google': 'google'})
+
+print(df)
+</pre>
+        <li><strong>Currency Conversion</strong>: When running global campaigns, converting spend and revenue to a single currency simplifies ROI calculations.</li>
+<pre>
+# Example using Python for currency conversion
+import pandas as pd
+
+data = {'spend_usd': [100, 200, 150], 'conversion_rate': [1.0, 0.85, 0.75]}
+df = pd.DataFrame(data)
+
+# Convert USD to local currency
+df['spend_local'] = df['spend_usd'] * df['conversion_rate']
+
+print(df)
+</pre>
+        <li><strong>Date Format Alignment</strong>: Ensuring all data sources use the same date format (e.g., YYYY-MM-DD) for smooth data merging.</li>
+<pre>
+# Example to standardize dates
+df['date'] = pd.to_datetime(df['date'], errors='coerce').dt.strftime('%Y-%m-%d')
+</pre>
+    </ul>
+
+    <h3>Advanced Techniques for Marketing Data Standardization</h3>
+    <ul>
+        <li><strong>Using ETL Pipelines</strong>: Tools like Talend, Apache Airflow, or custom Python scripts automate the extract, transform, and load process for marketing data.</li>
+        <li><strong>Mapping Taxonomies</strong>: Mapping platform-specific metrics to common taxonomy (e.g., ‘Reach’ vs ‘Impressions’) for unified reporting.</li>
+<pre>
+# Example mapping platform terms
+df['metric'] = df['metric'].replace({'Reach': 'Impressions', 'Views': 'Impressions'})
+</pre>
+    </ul>
+
+    <h3>Challenges in Standardizing Marketing Data</h3>
+    <ul>
+        <li><strong>Data Silos</strong>: Marketing data is often spread across tools (ads, CRM, email), making centralization difficult.</li>
+        <li><strong>Dynamic Campaign Structures</strong>: Campaign names and UTM tags may be inconsistent due to manual entry.</li>
+        <li><strong>Inconsistent Metrics</strong>: Different platforms define metrics differently (e.g., “clicks” may include different types of interactions).</li>
+        <li><strong>Manual Workload</strong>: Without automation, manual standardization is time-consuming and error-prone.</li>
+    </ul>
+
+    <h3>Practical Example: Cleaning Campaign Names</h3>
+<pre>
+# Sample: Standardizing campaign names
+data = {'campaign': ['Summer_Sale', 'summer-sale', 'SUMMER SALE 2024']}
+df = pd.DataFrame(data)
+
+df['campaign_cleaned'] = df['campaign'].str.lower().str.replace(r'[\s\-_]+', '-', regex=True)
+
+print(df)
+</pre>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+        <li><strong>Marketing Dashboards</strong>: Standardized data feeds into tools like Google Data Studio, Tableau, and Power BI for real-time reporting.</li>
+        <li><strong>Customer Journey Mapping</strong>: Consistent data across email, ads, and web enables clear journey visualization.</li>
+        <li><strong>ROI Attribution</strong>: Standardization supports accurate channel attribution in multi-touchpoint journeys.</li>
+        <li><strong>Personalized Campaigns</strong>: Clean data fuels AI-driven personalization engines for dynamic content and targeting.</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+    <p>Standardizing your marketing data is essential to drive smarter decisions, improve campaign performance, and automate reporting. Whether you're running ads across multiple channels or analyzing customer behavior, consistency in your data unlocks better insights and outcomes.</p>
+
+    <b><h1>🎉 Congratulations! You’ve completed the unit on Digital Marketing Data Standardization.</h1></b>
+    <button><a href="{{url_for('theoryquiz')}}">Start Quiz</a></button>
+</div>
+
+
+
+
+
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+
+</html>

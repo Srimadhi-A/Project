@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Manipulation and Cleaning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!-- unit1 -->
+        <div id="unit1" class="unit active">
+            <div class="container">
+                <h1>Data Manipulation and Cleaning</h1>
+                <p>Learn how to manipulate and clean data efficiently through five structured units.</p>
+                <h2>Course Overview</h2>
+                <p>This module covers the fundamentals of data manipulation and cleaning, which is a critical skill for
+                    anyone working with data.</p>
+                <p>Each unit below focuses on key concepts in data cleaning, including handling missing data, removing
+                    duplicates, correcting data types, and more.</p>
+                <h1>Unit 1: Introduction to Data Cleaning</h1>
+                <h2>What is Data Cleaning?</h2>
+                <p>Data cleaning, also known as data cleansing or data preprocessing, is the process of identifying and
+                    correcting (or removing) errors, inconsistencies, and inaccuracies in a dataset to improve its
+                    quality and ensure it is suitable for analysis. This process is crucial because raw data often
+                    contains missing values, duplicates, incorrect formats, or outliers that can negatively affect the
+                    quality of insights or decisions derived from it.</p>
+
+                <p>Data cleaning ensures that the data used for analysis is accurate, consistent, and formatted
+                    correctly, reducing the risk of misleading conclusions. It is a foundational step in any data
+                    analysis, whether you're working with small datasets or big data systems.</p>
+
+                <h3>Why is Data Cleaning Important?</h3>
+                <p>Data cleaning is important for several reasons. Firstly, it helps ensure the reliability of data.
+                    Without a clean dataset, any analysis performed on it can produce inaccurate or unreliable results.
+                    Clean data also helps improve the performance of machine learning models by allowing algorithms to
+                    work with accurate and well-structured information. Poor-quality data can lead to issues such as:
+                </p>
+                <ul>
+                    <li>Inaccurate predictions or insights.</li>
+                    <li>Inconsistent data that is difficult to compare or analyze.</li>
+                    <li>Data that is difficult or impossible to process or use in machine learning models.</li>
+                </ul>
+
+                <p>By cleaning data, we ensure that all analyses are based on accurate, consistent, and complete data,
+                    leading to better decision-making and more reliable results.</p>
+
+                <h3>Common Steps in Data Cleaning</h3>
+                <p>Here are the main steps involved in data cleaning:</p>
+                <ol>
+                    <li><strong>Handling Missing Data:</strong> Missing data is a common issue in datasets. Data
+                        cleaning techniques for handling missing values include replacing, imputing, or removing the
+                        missing entries. Different strategies can be employed depending on the nature and amount of
+                        missing data.</li>
+                    <li><strong>Removing Duplicates:</strong> Duplicate records can distort analysis and inflate
+                        statistical results. It is essential to identify and remove duplicates to ensure that each
+                        observation is unique.</li>
+                    <li><strong>Correcting Data Errors:</strong> Data errors can occur due to human mistakes, technical
+                        issues, or incorrect data entry. Correcting errors involves fixing inaccuracies, such as
+                        typographical errors, incorrect values, or data format inconsistencies.</li>
+                    <li><strong>Standardizing Data:</strong> Data standardization ensures consistency across the
+                        dataset. It includes standardizing formats such as dates, addresses, phone numbers, and other
+                        categorical variables.</li>
+                    <li><strong>Identifying and Handling Outliers:</strong> Outliers are extreme values that deviate
+                        significantly from other data points. Identifying and handling outliers involves deciding
+                        whether to remove or adjust these values, depending on their impact on the analysis.</li>
+                    <li><strong>Normalization/Scaling:</strong> Data normalization and scaling ensure that data values
+                        are within a specific range. This process is particularly important when working with machine
+                        learning algorithms.</li>
+                    <li><strong>Data Transformation:</strong> Data transformation involves converting data into a more
+                        useful form. This includes aggregating, splitting, or applying mathematical functions to make
+                        data more accessible or meaningful for analysis.</li>
+                </ol>
+
+                <h3>Handling Missing Data</h3>
+                <p>Missing data is one of the most common challenges encountered during data cleaning. There are several
+                    methods for dealing with missing values:</p>
+                <ul>
+                    <li><strong>Deletion:</strong> This involves removing rows or columns that have missing data. This
+                        method is only recommended when the amount of missing data is minimal and does not significantly
+                        affect the dataset.</li>
+                    <li><strong>Imputation:</strong> Imputation is the process of replacing missing values with
+                        estimated ones based on the available data. Common imputation methods include mean imputation,
+                        median imputation, and using machine learning algorithms like k-nearest neighbors.</li>
+                    <li><strong>Forward/Backward Fill:</strong> This technique is often used in time-series data. It
+                        involves filling missing values by copying the previous (forward fill) or next (backward fill)
+                        available value.</li>
+                </ul>
+
+                <h3>Removing Duplicates</h3>
+                <p>Duplicate records can skew results, especially in statistical analysis and machine learning models.
+                    Identifying and removing duplicates is critical for maintaining the integrity of the dataset. Some
+                    common methods for identifying duplicates include:</p>
+                <ul>
+                    <li><strong>Exact Match:</strong> This involves finding rows where all fields match exactly.</li>
+                    <li><strong>Partial Match:</strong> This identifies duplicate entries based on specific fields or
+                        columns, such as names or phone numbers.</li>
+                </ul>
+
+                <h3>Correcting Data Errors</h3>
+                <p>Data errors often occur due to human mistakes, system failures, or data entry inconsistencies.
+                    Identifying and correcting errors in a dataset is essential to ensure the quality of the data.
+                    Common types of data errors include:</p>
+                <ul>
+                    <li><strong>Typographical Errors:</strong> These errors can be caused by manual data entry mistakes,
+                        such as misspelled names or incorrect data formats.</li>
+                    <li><strong>Incorrect Data Types:</strong> Data should be in the appropriate format, such as
+                        integers for age or floating-point numbers for salaries. Converting incorrect data types ensures
+                        that data is processed accurately.</li>
+                    <li><strong>Out-of-Range Values:</strong> Sometimes, values fall outside the expected range. These
+                        need to be detected and either corrected or removed if they are errors.</li>
+                </ul>
+
+                <h3>Standardizing Data</h3>
+                <p>Standardization of data ensures uniformity across datasets. It is particularly important when dealing
+                    with data from different sources or systems. Some of the methods used to standardize data include:
+                </p>
+                <ul>
+                    <li><strong>Date Formats:</strong> Dates are often represented in different formats, such as
+                        DD/MM/YYYY or MM/DD/YYYY. Standardizing the date format across the dataset ensures consistency.
+                    </li>
+                    <li><strong>Unit Conversion:</strong> Data such as weights, distances, or temperatures may come in
+                        different units. Standardizing units (e.g., converting distances from miles to kilometers)
+                        ensures that all data is comparable.</li>
+                    <li><strong>Categorical Data Encoding:</strong> Categorical variables may have inconsistent encoding
+                        (e.g., "Yes"/"No" vs. "1"/"0"). Standardizing these encodings allows for easier analysis.</li>
+                </ul>
+
+                <h3>Identifying and Handling Outliers</h3>
+                <p>Outliers are data points that deviate significantly from other observations in the dataset.
+                    Identifying and handling outliers is important because they can distort analysis and lead to
+                    misleading results. Techniques for handling outliers include:</p>
+                <ul>
+                    <li><strong>Removing Outliers:</strong> This method involves eliminating data points that are far
+                        from the rest of the data, often using statistical methods such as the Z-score.</li>
+                    <li><strong>Transforming Data:</strong> Applying mathematical transformations such as logarithmic
+                        scaling can reduce the impact of outliers on analysis.</li>
+                    <li><strong>Treating Outliers as Important:</strong> In some cases, outliers are crucial and should
+                        be kept in the dataset for further analysis. For example, in fraud detection, outliers may
+                        represent important patterns.</li>
+                </ul>
+
+                <h3>Normalization and Scaling</h3>
+                <p>Normalization and scaling ensure that data is on the same scale, particularly when working with
+                    algorithms like neural networks, k-means clustering, or principal component analysis. Methods for
+                    normalization include:</p>
+                <ul>
+                    <li><strong>Min-Max Normalization:</strong> This method scales the data into a range between 0 and
+                        1.</li>
+                    <li><strong>Z-Score Standardization:</strong> This method scales data by subtracting the mean and
+                        dividing by the standard deviation, resulting in a dataset with a mean of 0 and a standard
+                        deviation of 1.</li>
+                </ul>
+
+                <h3>Data Transformation</h3>
+                <p>Data transformation is the process of converting data into a more useful form for analysis. Common
+                    transformations include:</p>
+                <ul>
+                    <li><strong>Log Transformation:</strong> This transformation is often used when data spans several
+                        orders of magnitude, such as in the case of financial data or population sizes.</li>
+                    <li><strong>Aggregation:</strong> This involves combining data to summarize it, such as calculating
+                        the average sales for each month or year.</li>
+                    <li><strong>Splitting Columns:</strong> In some cases, it may be necessary to split columns, such as
+                        separating a full name into first and last names.</li>
+                </ul>
+<hr>
+                <h3>Example of Data Cleaning</h3>
+                <p>Here is a sample dataset before and after cleaning:</p>
+                <pre>
+    Before:
+    Name, Age, Date
+    John, , 2023-01-01
+    Alice, 29, 2022-12-15
+    Bob, 35, 2023-01-01
+    
+    After (Missing value imputed, Date format standardized):
+    Name, Age, Date
+    John, 30, 2023-01-01
+    Alice, 29, 2022-12-15
+    Bob, 35, 2023-01-01
+    </pre>
+                <pre>
+    Before:
+    Name, Salary, Date of Joining
+    Mike, 50000, 2022-07-15
+    Sara, 55000, 2021-03-20
+    James, 48000, 2022-07-15
+
+    After (Missing value imputed, Date format standardized):
+    Name, Salary, Date of Joining
+    Mike, 50000, 2022-07-15
+    Sara, 55000, 2021-03-20
+    James, 48000, 2022-07-15
+    </pre>
+            </div>
+            <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+        </div>
+        <!-- unit2 -->
+        <div id="unit2" class="unit">
+            <h1>Unit 2: Handling Missing Data</h1>
+            <h2>Understanding Missing Data</h2>
+            <p>Missing data occurs when no value is stored for a variable in an observation. In real-world datasets,
+                missing data is common due to various reasons, such as errors in data collection, technical issues, or
+                even intentional gaps in the dataset. Missing data can have a significant impact on analysis, so
+                understanding how to handle it properly is essential. In this unit, we will explore different types of
+                missing data and strategies for dealing with it.</p>
+
+            <h3>Types of Missing Data</h3>
+            <p>When dealing with missing data, it is important to first understand the nature of the missingness.
+                Missing data can be classified into three main categories:</p>
+
+            <ul>
+                <li><strong>MCAR (Missing Completely at Random):</strong> Missing Completely at Random (MCAR) refers to
+                    a situation where the occurrence of missing data is entirely independent of both the observed and
+                    unobserved data. In other words, the missing values in your dataset have no relationship whatsoever
+                    with the data present in the dataset or the data that is missing. An example would be a case where
+                    survey respondents accidentally skip a question due to a technical issue, and this missingness is
+                    completely unrelated to the respondent’s answers or characteristics.</li>
+                <li><strong>MAR (Missing at Random):</strong> Missing at Random (MAR) is a type of missing data where
+                    the probability of data being missing is related to the observed data but not the missing data
+                    itself. In other words, the reason why data is missing can be explained by other variables in the
+                    dataset that are observed, but it has no relationship with the value of the missing data. For
+                    example, if older respondents are more likely to skip a question about income, the data can be
+                    considered Missing at Random (MAR) because the missingness can be explained by the age variable, but
+                    not by the income itself.</li>
+                <li><strong>MNAR (Missing Not at Random):</strong> Missing Not at Random (MNAR) refers to a situation
+                    where the likelihood of data being missing is directly related to the value of the missing data
+                    itself. In other words, the missingness is not random but depends on the value of the variable that
+                    is missing, which makes it the most problematic type of missing data. An example would be people
+                    with higher incomes choosing not to report their income, leading to the missingness being directly
+                    related to the income values themselves.</li>
+            </ul>
+
+            <h3>Strategies for Handling Missing Data</h3>
+            <p>There are several strategies for dealing with missing data, depending on the type of missingness and the
+                analysis requirements. Below are some of the most commonly used methods:</p>
+
+            <ul>
+                <li><strong>Deletion Methods:</strong> Deletion methods are techniques used to handle missing data by
+                    removing rows or columns that contain missing values from the dataset. These methods are generally
+                    simple to implement but may result in the loss of valuable information, especially when a
+                    significant amount of data is missing. There are two main types of deletion methods:
+                    <ul>
+                        <li><strong>Listwise Deletion:</strong> This method removes any rows with missing values for any
+                            variable in the dataset. While it is simple to use, it can lead to a substantial loss of
+                            data if many rows have missing values, potentially leading to biased results.</li>
+                        <li><strong>Pairwise Deletion:</strong> In contrast, pairwise deletion removes only the rows
+                            with missing data for the variables involved in a particular analysis. This method retains
+                            more data than listwise deletion but may still result in biases if the missing data is not
+                            missing at random.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Imputation Methods:</strong> Imputation methods are techniques used to replace missing
+                    values in a dataset with substituted values, ensuring that no data is lost and enabling more
+                    comprehensive analysis. These methods aim to estimate and fill in the missing data points based on
+                    the available observed data, preserving the dataset’s integrity while minimizing the risk of bias
+                    introduced by missing values. Imputation methods can vary in complexity:
+                    <ul>
+                        <li><strong>Mean/Median Imputation:</strong> The simplest form of imputation involves replacing
+                            missing values with the mean or median of the observed values in a particular column. While
+                            it is computationally simple, it assumes that the missing data is missing at random and may
+                            not be appropriate for all datasets.</li>
+                        <li><strong>Regression Imputation:</strong> This method involves using regression models to
+                            predict missing values based on observed values of other variables in the dataset. For
+                            example, a linear regression model can be used to predict missing income values based on
+                            age, education, and other demographic factors.</li>
+                        <li><strong>Multiple Imputation:</strong> Multiple imputation is a more advanced technique that
+                            creates several imputed datasets based on the observed data, performs analysis on each
+                            dataset, and then combines the results. This method accounts for the uncertainty inherent in
+                            imputation and provides more reliable results than single imputation methods.</li>
+                        <li><strong>KNN Imputation:</strong> The K-nearest neighbors (KNN) algorithm can be used to
+                            impute missing data by considering the values of the nearest data points. This method is
+                            particularly useful when the data exhibits non-linear relationships between variables.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Model-Based Methods:</strong> Model-based methods involve using statistical models to
+                    predict and estimate the missing values in a dataset. These methods take into account the
+                    relationships between the observed and missing data, attempting to infer the missing values based on
+                    these relationships. They are often more sophisticated than simpler imputation techniques and can
+                    provide more accurate imputations when the missingness is not completely random:
+                    <ul>
+                        <li><strong>Expectation-Maximization (EM) Algorithm:</strong> The EM algorithm is a statistical
+                            method for estimating missing data in datasets with complex relationships. It iterates
+                            between estimating the missing values (expectation step) and optimizing the parameters of a
+                            statistical model (maximization step) to find the most likely values for the missing data.
+                        </li>
+                        <li><strong>Bayesian Methods:</strong> Bayesian methods use prior distributions and observed
+                            data to estimate missing values. By incorporating prior knowledge and using a probabilistic
+                            approach, Bayesian methods can provide more accurate imputations and quantify uncertainty
+                            about the missing data.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Example: Imputing Missing Values</h3>
+            <p>For a column with missing values, you can replace the missing data with the mean or median of that
+                column. Let’s walk through an example to understand how missing values can be imputed in a dataset using
+                various methods. We'll use a small dataset for this purpose and demonstrate different imputation
+                techniques such as mean imputation, regression imputation, and multiple imputation.</p>
+
+            <p>Consider the following small dataset of individuals' ages and their corresponding incomes:</p>
+            <pre>
+        Age: [25, 30, 35, 40, 45, NaN, 55, 60, NaN]
+        Income: [50000, 60000, 70000, 80000, NaN, 100000, 120000, 130000, 140000]
+        </pre>
+
+            <h4>1. Mean Imputation:</h4>
+            <p>For the missing income values, we calculate the mean of the observed incomes:</p>
+            <pre>
+        Mean Income = (50000 + 60000 + 70000 + 80000 + 100000 + 120000 + 130000 + 140000) / 8 = 87,500
+        </pre>
+            <p>We can replace the missing income values with 87,500.</p>
+
+            <h4>2. Regression Imputation:</h4>
+            <p>In regression imputation, we use the relationship between age and income to predict the missing income
+                values. For instance, we might use a linear regression model to predict missing income values based on
+                age. The model might yield an equation like:</p>
+            <pre>
+        Income = 2000 * Age + 5000
+        </pre>
+            <p>Using this model, we can predict the missing income values for ages 45 and 60.</p>
+
+            <h4>3. Multiple Imputation:</h4>
+            <p>Multiple imputation involves generating several possible imputed values for each missing entry, based on
+                observed data and model assumptions. The imputed values are treated as different plausible values and
+                analyzed together.</p>
+
+            <h3>Choosing the Right Method</h3>
+            <p>Choosing the right method for handling missing data depends on several factors, including the type of
+                missingness, the amount of missing data, and the intended analysis. It is crucial to carefully assess
+                the nature of the missing data before deciding on an imputation or deletion strategy. In some cases, you
+                may need to combine multiple methods to handle different types of missingness in the dataset.</p>
+            <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+        </div>
+        <!-- unit 3 -->
+        <div id="unit3" class="unit">
+            <h1>Unit 3: Correcting Data Types</h1>
+            <h2>Why Correct Data Types?</h2>
+            <p>Incorrect data types can lead to errors in analysis, such as string data when numerical values are
+                expected.
+                Correctly assigning data types to variables is a fundamental aspect of data management and analysis. It
+                ensures that data is represented, processed, and interpreted properly. Here are the key reasons why
+                using the correct data types is crucial:Data Types define the kind of value a variable can hold (e.g.,
+                integer, string, boolean). If the wrong data type is assigned, it can lead to incorrect representations
+                of the data.
+                For example, if a date is stored as a string instead of a datetime object, you might not be able to
+                perform date-related operations (like sorting or filtering) correctly.
+            </p>
+
+            <h3>Common Data Type Issues</h3>
+            <ul>
+                <p>When dealing with data in any context (data analysis, programming, database management, etc.),
+                    several common issues related to data types can arise. These issues can lead to errors,
+                    inefficiencies, and incorrect results.Issue: Assigning the wrong data type to a variable or column
+                    can cause unexpected behavior and errors in your system.
+                    Example: Storing a numeric value like a salary as a string ("50000") instead of a float or integer.
+                    This can result in problems when performing mathematical operations like summing or averaging
+                    salaries.
+                </p>
+                <li>Incorrect Data Type Assignment</li>
+                <li>Dates stored as text</li>
+                <li>Incorrect categorization of variables</li>
+                <li>Type Mismatch</li>
+                <li>Loss of Precision</li>
+                <li>Inconsistent Date Formats</li>
+                <li>String and Number Confusion</li>
+
+            </ul>
+
+            <h3>How to Correct Data Types</h3>
+            <ul>
+                <li>Use type conversion functions (e.g., `int()`, `float()`, `str()` in Python)</li>
+                <li>Reformat dates and times to a standard format</li>
+                <li>Convert categorical values to categorical data types for efficient analysis</li>
+                <ol>
+                    <li>Use Type Conversion Functions</li>
+                    <pre>df['age'] = df['age'].apply(int)    # Convert to integer
+                df['price'] = df['price'].apply(float)  # Convert to float
+                df['is_active'] = df['is_active'].apply(str)  # Convert to string
+                </pre>
+                    <li>Reformat Dates and Times to a Standard Format</li>
+                    <pre>df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')  # Standardize date format
+                </pre>
+                    <li>Convert Categorical Values to Categorical Data Types</li>
+                    <pre>df['category'] = df['category'].astype('category')  # Convert to category type
+                </pre>
+                    <li>Handle Missing or Null Values Before Conversion</li>
+                    <pre>df['age'] = df['age'].fillna(df['age'].mean()).astype(int)  # Impute missing values and convert to int
+                </pre>
+                    <li>Use apply() for Complex Conversions</li>
+                    <pre>df['price'] = df['price'].apply(lambda x: float(x.replace('$', '').replace(',', '')))</pre>
+                    <li>Detect and Handle Type Inconsistencies</li>
+                    <pre>df['price'] = df['price'].apply(pd.to_numeric, errors='coerce')  # Convert to numeric, invalid entries become NaN
+            </pre>
+                    <li>Use astype() for Efficient Data Type Conversion</li>
+                    <pre>df['age'] = df['age'].astype('float64')  # Convert to float for more precision
+            </pre>
+                    <li>Ensure Consistent String Formats</li>
+                    <pre>df['name'] = df['name'].str.strip().str.title()  # Clean and format text
+            </pre>
+                    <li> Convert Integers and Floats to the Appropriate Size</li>
+                    <pre>df['age'] = df['age'].astype('int8')  # Convert to smaller integer type
+            </pre>
+                    <li>Convert Data Types Based on Data Distribution</li>
+                    <pre>df['quantity'] = df['quantity'].astype('int16')  # Use a smaller integer type for better memory usage
+            </pre>
+                </ol>
+
+            </ul>
+            <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+        </div>
+        <div id="unit4" class="unit">
+            <h1>Unit 4: Removing Duplicates</h1>
+            <h2>What is Missing Data?</h2>
+            <p>Missing data refers to the absence of a value where one is expected in a dataset. This can occur for
+                various reasons, such as data entry errors, non-response in surveys, or system glitches. Handling
+                missing data properly is crucial for maintaining the integrity of analysis.</p>
+
+            <h3>Why is Missing Data a Problem?</h3>
+            <p>Missing data can lead to biased or incorrect analysis if not handled properly. The presence of missing
+                data affects data quality and can reduce the power of statistical tests, distort relationships between
+                variables, and introduce errors in predictive models. Inaccurate treatment of missing data may result in
+                poor decision-making, especially in critical fields like healthcare and finance where precision is
+                vital.</p>
+
+            <h4>Consequences of Ignoring Missing Data</h4>
+            <ul>
+                <li><strong>Bias in Results</strong>: Missing values might not be missing at random, leading to biased
+                    analysis. For example, if data is missing more frequently in one category, the results could be
+                    skewed in favor of other categories.</li>
+                <li><strong>Reduced Sample Size</strong>: Deleting rows with missing values can reduce the sample size,
+                    which may reduce statistical power, especially if the missing data is not random.</li>
+                <li><strong>Inconsistent Data</strong>: Unaddressed missing data can lead to inconsistencies across
+                    different datasets, especially when merging or comparing data. Inconsistencies between datasets can
+                    cause conflicts and errors in analysis or modeling.</li>
+            </ul>
+
+            <h3>Types of Missing Data</h3>
+            <ul>
+                <li><strong>Missing Completely at Random (MCAR)</strong>: The missing data is unrelated to any other
+                    variables in the dataset. This is the easiest type to handle, as the absence of data is random. MCAR
+                    is ideal for imputation or analysis because it does not depend on any observed or unobserved data.
+                </li>
+                <li><strong>Missing at Random (MAR)</strong>: The missing data is related to other observed data, but
+                    not the missing data itself. For example, people with higher incomes may be less likely to report
+                    their income, but this is not related to the actual income value. Handling MAR requires statistical
+                    techniques like imputation based on the observed values of other variables.</li>
+                <li><strong>Missing Not at Random (MNAR)</strong>: The missing data depends on the value of the missing
+                    data itself. For instance, a survey may have more missing responses for questions that are personal
+                    or sensitive (e.g., salary or age). MNAR requires more complex modeling or may necessitate advanced
+                    techniques such as pattern-mixture models or selection models to handle missingness.</li>
+            </ul>
+
+            <h3>How to Handle Missing Data</h3>
+            <p>Several techniques can be used to handle missing data, and the choice of method depends on the amount of
+                missing data, the nature of the data, and the purpose of the analysis. Each technique has its advantages
+                and drawbacks. Some methods can introduce bias, while others may reduce the precision of the analysis.
+            </p>
+
+            <h4>1. Imputation</h4>
+            <p>Imputation refers to filling in missing values with estimated ones based on other available data. It
+                helps retain the dataset's size, allowing for more comprehensive analysis. However, imputation should be
+                done with caution to avoid introducing bias or distorting the data.</p>
+            <ul>
+                <li><strong>Mean/Median Imputation</strong>: Replace missing values in a numeric column with the mean or
+                    median of the non-missing values. The median is preferred if the data is skewed, as it is more
+                    robust to outliers.</li>
+                <pre><code>
+# Mean imputation for numeric columns
+df['age'] = df['age'].fillna(df['age'].mean())
+            </code></pre>
+                <li><strong>Mode Imputation</strong>: This method is used for categorical variables, where missing
+                    values are replaced with the most frequent category (mode). Mode imputation works well when there is
+                    a strong dominant category.</li>
+                <pre><code>
+# Mode imputation for categorical columns
+df['gender'] = df['gender'].fillna(df['gender'].mode()[0])
+            </code></pre>
+                <li><strong>Advanced Imputation</strong>: Use more sophisticated algorithms like KNN (K-Nearest
+                    Neighbors) or regression models to predict missing values based on other features. These methods can
+                    help make more accurate imputations by leveraging relationships between features.</li>
+                <pre><code>
+# KNN Imputation using sklearn
+from sklearn.impute import KNNImputer
+imputer = KNNImputer(n_neighbors=5)
+df_imputed = imputer.fit_transform(df)
+            </code></pre>
+            </ul>
+
+            <h4>2. Deletion</h4>
+            <p>In cases where missing data is minimal, or the missing data cannot be imputed effectively, deletion of
+                rows or columns with missing data is a viable option. There are two main methods of deletion:</p>
+            <ul>
+                <li><strong>Listwise Deletion</strong>: Removes any rows that contain missing data in any column. While
+                    simple, this may lead to significant loss of data if many rows have missing values. It is most
+                    effective when the missing data is MCAR.</li>
+                <pre><code>
+# Listwise Deletion
+df.dropna(axis=0, how='any', inplace=True)
+            </code></pre>
+                <li><strong>Pairwise Deletion</strong>: This method removes data on a case-by-case basis, allowing for
+                    analysis to continue with the available data. This method is often used in correlation analysis when
+                    you cannot afford to lose too many observations.</li>
+                <pre><code>
+# Pairwise Deletion
+df.dropna(axis=1, how='any', inplace=True)
+            </code></pre>
+            </ul>
+
+            <h4>3. Interpolation and Smoothing</h4>
+            <p>Interpolation is useful for time series data where missing values occur in a sequential manner. The
+                missing values are estimated based on adjacent data points. Smoothing techniques such as linear and
+                spline interpolation can be used to create smoother estimates. Interpolation is preferred when there is
+                a clear temporal or spatial order to the data.</p>
+            <ul>
+                <li><strong>Linear Interpolation</strong>: Estimates missing values by assuming a linear relationship
+                    between adjacent known data points. It is a simple yet effective method when the data exhibits a
+                    linear trend.</li>
+                <pre><code>
+# Linear Interpolation
+df['value'] = df['value'].interpolate(method='linear')
+            </code></pre>
+                <li><strong>Spline Interpolation</strong>: Uses polynomial functions to estimate missing data with a
+                    smoother curve. Spline interpolation can be useful when the data shows non-linear trends.</li>
+                <pre><code>
+# Spline Interpolation
+df['value'] = df['value'].interpolate(method='spline', order=2)
+            </code></pre>
+            </ul>
+
+            <h4>4. Algorithms That Handle Missing Data</h4>
+            <p>Some machine learning algorithms can handle missing data internally. These include:</p>
+            <ul>
+                <li><strong>Decision Trees</strong>: Algorithms like Random Forest and Gradient Boosting can work with
+                    missing data directly. They handle missing values by making split decisions that don't rely on the
+                    missing feature. This allows them to be more robust to missing data compared to other algorithms.
+                </li>
+                <li><strong>Naive Bayes</strong>: Naive Bayes classifiers can handle missing data by using probability
+                    estimates from available data. It can impute missing values based on the distribution of the
+                    existing data.</li>
+            </ul>
+
+            <h3>Best Practices for Handling Missing Data</h3>
+            <ul>
+                <li><strong>Understand the Data</strong>: Know why the data is missing. This understanding can guide
+                    your choice of method for handling missing data. For example, if data is missing because a survey
+                    question was not applicable, deletion may be appropriate.</li>
+                <li><strong>Assess the Missing Data Mechanism</strong>: Determine whether the data is missing at random
+                    (MAR), completely at random (MCAR), or not at random (MNAR). Each type of missingness has a
+                    different implication for how you handle it.</li>
+                <li><strong>Use Multiple Imputation</strong>: In some cases, using multiple imputation (repeatedly
+                    imputing missing values with different methods and averaging the results) can provide better
+                    accuracy. This is especially true when dealing with large datasets.</li>
+                <li><strong>Check for Patterns</strong>: Visualize missing data patterns to check if there are any
+                    systematic reasons for missingness. Tools like heatmaps or missing data plots can help reveal trends
+                    in missingness.</li>
+                <li><strong>Document Your Methods</strong>: Ensure transparency by documenting the methods used to
+                    handle missing data, especially when using advanced imputation methods. This ensures that others can
+                    replicate your analysis or understand how the data was treated.</li>
+            </ul>
+
+            <h3>Visualizing Missing Data</h3>
+            <p>Visualization can help in understanding patterns in missing data. Tools like <strong>missingno</strong>
+                in Python provide quick insights into how missing data is distributed across your dataset. These
+                visualizations can help you decide the best approach for handling missing data.</p>
+            <pre><code>
+# Visualize missing data using missingno
+import missingno as msno
+msno.matrix(df)
+        </code></pre>
+
+            <h3>Real-World Applications of Handling Missing Data</h3>
+            <p>Handling missing data effectively is critical in various industries. Below are some real-world
+                applications where missing data handling is crucial:</p>
+            <ul>
+                <li><strong>Healthcare</strong>: In healthcare data, missing values can affect patient outcomes,
+                    clinical trials, and medical research. Imputation and interpolation techniques are commonly used to
+                    handle missing medical records and test results.</li>
+                <li><strong>Finance</strong>: In financial datasets, missing values can lead to inaccurate forecasts and
+                    predictions. Proper handling of missing data ensures that financial models and risk assessments are
+                    accurate and reliable.</li>
+                <li><strong>Retail and E-commerce</strong>: Missing transaction data or customer information can lead to
+                    biased recommendations and inventory management. Retailers use data imputation to fill in missing
+                    customer preferences or sales data.</li>
+                <li><strong>Sports Analytics</strong>: Missing player statistics or match data can affect performance
+                    analysis. Imputation techniques help to fill in missing data points in team and player performance
+                    data.</li>
+            </ul>
+            <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+        </div>
+        <div id="unit5" class="unit">
+            <h1>Unit 5: Standardizing Data</h1>
+            <p>Learn how to standardize data to ensure consistency and improve analysis quality.</p>
+            <h2>What is Data Standardization?</h2>
+            <p>Data standardization is the process of transforming data into a common format or scale. This process is
+                crucial when working with multiple datasets from different sources, as it ensures uniformity across all
+                data. It plays a vital role in data analysis and machine learning, as inconsistencies in data formats
+                can lead to inaccurate or skewed results.</p>
+
+            <h3>Key Concepts in Data Standardization</h3>
+            <ul>
+                <li><strong>Standardizing Numerical Values</strong>: Scaling numerical values to a common range (e.g.,
+                    [0, 1]) or distribution (e.g., Gaussian distribution). This helps prevent certain features from
+                    dominating the analysis due to their larger scales.</li>
+                <li><strong>Handling Categorical Data</strong>: Categorical variables often need to be transformed into
+                    a consistent format. This could involve encoding categories into numbers or ensuring uniformity in
+                    string formats (e.g., changing “Male” to “male” and “FEMALE” to “female”).</li>
+                <li><strong>Converting Date Formats</strong>: Dates may appear in multiple formats, such as “MM-DD-YYYY”
+                    or “YYYY-MM-DD”. Standardizing date formats ensures consistent analysis and prevents errors in
+                    time-based operations like sorting or comparisons.</li>
+                <li><strong>Time Series Data Standardization</strong>: For time series data, standardization ensures
+                    that the data points are on the same scale, making comparisons and predictions more accurate.</li>
+            </ul>
+
+            <h3>Why is Data Standardization Important?</h3>
+            <p>Data standardization is crucial for ensuring that analysis results are reliable and interpretable. Some
+                key reasons for standardizing data include:</p>
+            <ul>
+                <li><strong>Consistency in Analysis</strong>: Ensures that datasets from different sources can be
+                    integrated and analyzed together.</li>
+                <li><strong>Improving Model Performance</strong>: Many machine learning models (e.g., linear regression,
+                    k-nearest neighbors, neural networks) perform better when data is standardized, as the models tend
+                    to assume features are on the same scale.</li>
+                <li><strong>Enabling Fair Comparison</strong>: Standardization ensures that all features contribute
+                    equally to the analysis, allowing for fair comparison of variables.</li>
+                <li><strong>Handling Outliers</strong>: Standardization techniques, like Z-score normalization, can help
+                    handle outliers in the data by transforming extreme values into more manageable scales.</li>
+            </ul>
+
+            <h3>Methods of Data Standardization</h3>
+            <p>There are several methods of data standardization, each with its benefits and use cases. Here are the
+                most commonly used methods:</p>
+            <ul>
+                <li><strong>Min-Max Scaling</strong>: This method rescales the data to a fixed range, typically [0, 1].
+                    It is particularly useful when the data has known minimum and maximum values.</li>
+                <pre>
+# Example in Python (using sklearn)
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
+
+# Sample dataset
+data = {'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+# Apply Min-Max Scaling
+scaler = MinMaxScaler()
+df_scaled = scaler.fit_transform(df)
+
+print(df_scaled)
+                </pre>
+                <li><strong>Z-Score Standardization (Standardization)</strong>: This method standardizes the data by
+                    subtracting the mean and dividing by the standard deviation. The result is a distribution with a
+                    mean of 0 and a standard deviation of 1. It is ideal when the data follows a Gaussian distribution.
+                </li>
+                <pre>
+# Example in Python (using sklearn)
+from sklearn.preprocessing import StandardScaler
+import pandas as pd
+
+# Sample dataset
+data = {'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+# Apply standardization
+scaler = StandardScaler()
+df_standardized = scaler.fit_transform(df)
+
+print(df_standardized)
+                </pre>
+                <li><strong>Log Transformation</strong>: Applying a logarithmic scale to highly skewed data can
+                    normalize the distribution. This is particularly useful when working with data that has exponential
+                    growth (e.g., income, population data).</li>
+                <pre>
+# Example in Python (using numpy)
+import numpy as np
+import pandas as pd
+
+# Sample dataset
+data = {'income': [1000, 1500, 3000, 4500, 10000]}
+df = pd.DataFrame(data)
+
+# Apply Log Transformation
+df['log_income'] = np.log(df['income'])
+
+print(df)
+                </pre>
+            </ul>
+
+            <h3>Other Advanced Techniques in Data Standardization</h3>
+            <ul>
+                <li><strong>Robust Scaling</strong>: This method uses the median and the interquartile range (IQR)
+                    instead of the mean and standard deviation. It is less sensitive to outliers, making it ideal for
+                    datasets with extreme values.</li>
+                <pre>
+# Example in Python (using sklearn)
+from sklearn.preprocessing import RobustScaler
+import pandas as pd
+
+# Sample dataset
+data = {'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+# Apply Robust Scaling
+scaler = RobustScaler()
+df_robust_scaled = scaler.fit_transform(df)
+
+print(df_robust_scaled)
+                </pre>
+                <li><strong>Quantile Transformation</strong>: This technique transforms the features to follow a uniform
+                    or normal distribution. It is useful when the dataset is highly skewed.</li>
+                <pre>
+# Example in Python (using sklearn)
+from sklearn.preprocessing import QuantileTransformer
+import pandas as pd
+
+# Sample dataset
+data = {'height': [150, 160, 170, 180, 190], 'weight': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+# Apply Quantile Transformation
+scaler = QuantileTransformer()
+df_quantile_transformed = scaler.fit_transform(df)
+
+print(df_quantile_transformed)
+                </pre>
+            </ul>
+
+            <h3>Challenges in Data Standardization</h3>
+            <p>While data standardization is crucial for ensuring accuracy, there are several challenges to be aware of:
+            </p>
+            <ul>
+                <li><strong>Dealing with Missing Values</strong>: Missing data can interfere with the standardization
+                    process. It is essential to handle missing values before applying standardization methods.</li>
+                <li><strong>Feature Scaling</strong>: When features have different units (e.g., height in meters and
+                    weight in kilograms), scaling them to the same range can distort relationships between features if
+                    not done correctly.</li>
+                <li><strong>Choice of Method</strong>: The choice of standardization method can affect the analysis. For
+                    instance, Min-Max scaling can be sensitive to outliers, while Z-score standardization may not work
+                    well if the data is not normally distributed.</li>
+                <li><strong>Interpretability</strong>: After standardizing data, the original meaning of the data may be
+                    lost, which could make the results harder to interpret, especially for stakeholders without a
+                    technical background.</li>
+            </ul>
+
+            <h3>Practical Example: Standardizing a Dataset with Different Units</h3>
+            <p>Imagine a dataset with two features: height (in centimeters) and weight (in kilograms). Standardizing
+                both features ensures that each feature has equal weight in the analysis.</p>
+            <pre>
+# Example of standardizing features with different units
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Sample dataset with height and weight in different units
+data = {'height_cm': [150, 160, 170, 180, 190], 'weight_kg': [50, 60, 70, 80, 90]}
+df = pd.DataFrame(data)
+
+# Apply Z-Score Standardization
+scaler = StandardScaler()
+df_standardized = scaler.fit_transform(df)
+
+print(df_standardized)
+            </pre>
+
+            <h3>Real-World Applications of Data Standardization</h3>
+            <p>Data standardization has numerous real-world applications, especially in fields such as machine learning,
+                data science, and analytics. Below are some key use cases:</p>
+            <ul>
+                <li><strong>Machine Learning</strong>: Many machine learning algorithms, such as k-NN, SVMs, and neural
+                    networks, perform better when the input features are standardized. Standardization ensures that no
+                    feature dominates due to its scale.</li>
+                <li><strong>Finance and Economics</strong>: In financial analysis, standardization is often applied to
+                    time series data to make features comparable. For example, adjusting stock prices to account for
+                    inflation helps in analyzing the long-term performance of stocks.</li>
+                <li><strong>Healthcare</strong>: In healthcare analytics, standardizing data like patient height,
+                    weight, and blood pressure can help in comparing different hospitals or regions with different units
+                    of measurement.</li>
+                <li><strong>Marketing</strong>: Marketers can use standardization to analyze customer demographics (age,
+                    income) and buying behaviors on an equal scale, making it easier to segment customers and create
+                    targeted marketing strategies.</li>
+                <li><strong>Sports Analytics</strong>: In sports analytics, standardization helps compare performance
+                    metrics like speed, distance, and calories burned, which may have different units, making the
+                    comparison between athletes or teams more meaningful.</li>
+            </ul>
+
+            <h3>Conclusion</h3>
+            <p>Data standardization is a fundamental step in data analysis, machine learning, and many other fields
+                where consistent and comparable data is essential. By understanding the various methods and challenges
+                involved in standardization, one can improve the quality of data analysis and machine learning models.
+                Standardizing your data correctly can unlock deeper insights, help mitigate issues related to different
+                scales, and improve overall model performance.</p>
+            
+            <b><h1>🎉 Congratulations! You’ve completed the course.</h1></b>
+            <button><a href="{{url_for('theoryquiz')}}"> Start Quiz</a></button>
+        </div>
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- study space in navbar -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <!--full font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pycourse.css') }}">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand">Study Space</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Course Content -->
+  <div class="container mt-4">
+    <ul class="nav nav-tabs" id="moduleTabs">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#module1">Module 1</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#module2">Module 2</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#module3">Module 3</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#module4">Module 4</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#module5">Module 5</a></li>
+    </ul>
+
+    <div class="tab-content mt-3" id="tabContent">
+      {% for i in range(1,6) %}
+      <div id="module{{ i }}" class="tab-pane fade {% if i == 1 %}show active{% endif %}">
+        <h3>{{ ['Introduction to AI', 'Machine Learning Fundamentals', 'Neural Networks', 'Deep Learning', 'AI Project: Build a Model'][i-1] }}</h3>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <iframe id="module{{ i }}-video" width="100%" height="315" src="" allowfullscreen></iframe>
+            <div class="mt-3">
+              <button class="btn btn-secondary" id="prev-module{{ i }}" onclick="prevVideo('module{{ i }}')">Previous</button>
+              <button class="btn btn-primary" id="next-module{{ i }}" onclick="nextVideo('module{{ i }}')">Next</button>
+              {% if i == 5 %}
+              <button id="finish-course" class="btn btn-success mt-2" style="display: none;" onclick="goToQuiz()">Finish Course</button>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 id="module{{ i }}-title">Unit 1</h4>
+            <p id="module{{ i }}-description">
+              Content for Module {{ i }} will be shown here dynamically.
+            </p>
+            <div class="alert alert-info text-center" style="width: 110px;">
+              <strong>DURATION:</strong> 2 mins
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- JS Section -->
+  <script>
+    const videoData = {
+      "module1": [
+        { title: "What is Artificial Intelligence?", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Introduction to the concept of AI." },
+        { title: "Applications of AI", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Exploring AI applications in real life." },
+        { title: "AI Ethics", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Understanding the ethical considerations in AI." }
+      ],
+      "module2": [
+        { title: "Supervised Learning", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Introduction to supervised learning." },
+        { title: "Unsupervised Learning", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "What is unsupervised learning?" },
+        { title: "Reinforcement Learning", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Understanding reinforcement learning." }
+      ],
+      "module3": [
+        { title: "Neural Networks", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Introduction to neural networks." },
+        { title: "Activation Functions", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Explaining activation functions in neural networks." }
+      ],
+      "module4": [
+        { title: "Deep Learning", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Introduction to deep learning and its importance." },
+        { title: "Building Deep Learning Models", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "How to build deep learning models." }
+      ],
+      "module5": [
+        { title: "Building an AI Model", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Hands-on tutorial to build your own AI model." },
+        { title: "Deploying AI Model", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Learn how to deploy AI models in production." },
+        { title: "AI Project Walkthrough", url: "https://www.youtube.com/embed/l1EssrLxt7E", desc: "Final walkthrough of an AI project." }
+      ]
+    };
+
+    const currentVideoIndex = {};
+
+    function updateModule(moduleId) {
+      const videoIndex = currentVideoIndex[moduleId] || 0;
+      const video = videoData[moduleId][videoIndex];
+      document.getElementById(`${moduleId}-video`).src = video.url;
+      document.getElementById(`${moduleId}-title`).innerText = video.title;
+      document.getElementById(`${moduleId}-description`).innerText = video.desc;
+
+      if (moduleId === "module5") {
+        const finishButton = document.getElementById("finish-course");
+        if (videoIndex === videoData[moduleId].length - 1) {
+          finishButton.style.display = "inline-block";
+        } else {
+          finishButton.style.display = "none";
+        }
+      }
+    }
+
+    function nextVideo(moduleId) {
+      if (currentVideoIndex[moduleId] === undefined) currentVideoIndex[moduleId] = 0;
+      if (currentVideoIndex[moduleId] < videoData[moduleId].length - 1) {
+        currentVideoIndex[moduleId]++;
+        updateModule(moduleId);
+      }
+    }
+
+    function prevVideo(moduleId) {
+      if (currentVideoIndex[moduleId] === undefined) currentVideoIndex[moduleId] = 0;
+      if (currentVideoIndex[moduleId] > 0) {
+        currentVideoIndex[moduleId]--;
+        updateModule(moduleId);
+      }
+    }
+
+    function goToQuiz() {
+    const courseName = "Artificial Intelligence"; // Or "Python Basics", dynamically if needed
+    const encodedCourse = encodeURIComponent(courseName);
+    window.location.href = `/quiz?course=${encodedCourse}`;
+  }
+
+    // Initialize all modules with their first video
+    window.onload = () => {
+      for (let module in videoData) {
+        currentVideoIndex[module] = 0;
+        updateModule(module);
+      }
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

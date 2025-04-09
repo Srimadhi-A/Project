@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      padding: 20px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgba(131, 18, 56, 1);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2 id="quizTitle"></h2>
+  <div class="container">
+    <form id="quizForm">
+      <div id="quizQuestions"></div>
+      <button type="button" id="submitBtn">Submit</button>
+    </form>
+  </div>
+
+  <!-- Popup and Overlay -->
+  <div id="overlay"></div>
+  <div class="popup" id="popupBox">
+    <h3>Quiz Score</h3>
+    <p id="scoreText"></p>
+    <button onclick="closePopup()">Close</button>
+    <button id="relearnBtn" style="display: none;" onclick="relearnCourse()">Re-Learn the Course</button>
+    <button id="certificateButton" style="display: none;">Get Certificate</button>
+  </div>
+
+  <script>
+    
+
+    const courseQuizzes = {
+      "Python Basics": [
+        { question: "What is the correct file extension for Python files?", options: ["a) .py", "b) .python", "c) .pty"], answer: "a" },
+        { question: "How do you create a variable in Python?", options: ["a) var x = 10", "b) x = 10", "c) 9x = 10"], answer: "b" },
+        { question: "Which keyword is used to define a function in Python?", options: ["a) def", "b) function", "c) fun"], answer: "a" },
+        { question: "What is the output of print(2 ** 3) in Python?", options: ["a) 5", "b) 8", "c) 6"], answer: "b" },
+        { question: "Which of the following data types is immutable in Python?", options: ["a) List", "b) Dictionary", "c) Tuple"], answer: "c" }
+      ],
+      "Web Development": [
+      { question: "Which language is used for structuring web pages?", options: ["a) HTML", "b) CSS", "c) JavaScript"], answer: "a" },
+      { question: "Which tag is used to create a hyperlink in HTML?", options: ["a) link", "b) a", "c) href"], answer: "b" },
+      { question: "What does CSS stand for?", options: ["a) Computer Style Sheets", "b) Cascading Style Sheets", "c) Creative Styling System"], answer: "b" },
+      { question: "Which property is used to change the text color in CSS?", options: ["a) color", "b) text-color", "c) font-color"], answer: "a" },
+      { question: "Which JavaScript keyword is used to declare a variable?", options: ["a) var", "b) let", "c) Both a and b"], answer: "c" }
+      ],
+      
+      "Cybersecurity": [
+  { question: "What does 'phishing' refer to in cybersecurity?", options: ["a) Fishing in a lake", "b) Attempting to obtain sensitive information fraudulently", "c) Encrypting files for security"], answer: "b" },
+  { question: "Which one is a strong password?", options: ["a) password123", "b) qwerty", "c) T#7gK9!bP"], answer: "c" },
+  { question: "What is a firewall used for?", options: ["a) Cooling the computer", "b) Protecting against unauthorized access", "c) Formatting the system"], answer: "b" },
+  { question: "What is the full form of VPN?", options: ["a) Virtual Private Network", "b) Very Protected Network", "c) Verified Personal Node"], answer: "a" },
+  { question: "Which of the following is *NOT* a type of malware?", options: ["a) Worm", "b) Trojan", "c) Firewall"], answer: "c" }
+],
+      "Machine Learning": [
+  { question: "What is Machine Learning?", options: ["a) Manually coding tasks", "b) Teaching machines using data", "c) Using machines for hardware tasks"], answer: "b" },
+  { question: "Which library is commonly used in Python for Machine Learning?", options: ["a) NumPy", "b) Matplotlib", "c) Scikit-learn"], answer: "c" },
+  { question: "What is 'training data'?", options: ["a) Data used to test a model", "b) Data used to improve UI", "c) Data used to teach a model"], answer: "c" },
+  { question: "Which of the following is a type of Machine Learning?", options: ["a) Supervised Learning", "b) Unsupervised Learning", "c) Both a and b"], answer: "c" },
+  { question: "What is 'overfitting' in ML?", options: ["a) When model is too simple", "b) When model learns noise and performs poorly on new data", "c) When model has too little data"], answer: "b" }
+],
+
+"Artificial Intelligence": [
+        { question: "What is Artificial Intelligence?", options: ["a) Human emotions", "b) Making machines intelligent", "c) Computer hardware"], answer: "b" },
+        { question: "Which of these is an application of AI?", options: ["a) Image Recognition", "b) Data Entry", "c) Typing Documents"], answer: "a" },
+        { question: "What does NLP stand for?", options: ["a) Neural Language Processing", "b) Natural Language Processing", "c) Natural Logic Processing"], answer: "b" },
+        { question: "Which algorithm is used in AI for decision making?", options: ["a) Bubble Sort", "b) Decision Tree", "c) Linear Search"], answer: "b" },
+        { question: "AI that mimics human brain is called?", options: ["a) Neural Networks", "b) CPU", "c) Algorithm"], answer: "a" }
+      ],
+
+      "Cloud Computing": [
+        { question: "What is Cloud Computing?", options: ["a) Computing using clouds", "b) Accessing services via internet", "c) Buying hardware"], answer: "b" },
+        { question: "Which is a Cloud service model?", options: ["a) IaaS", "b) BIOS", "c) HDD"], answer: "a" },
+        { question: "AWS, Azure, GCP are examples of?", options: ["a) Operating Systems", "b) Cloud Providers", "c) Software"], answer: "b" },
+        { question: "Which service is used to store data in the cloud?", options: ["a) EC2", "b) S3", "c) VPC"], answer: "b" },
+        { question: "What is scalability in Cloud?", options: ["a) Reducing storage", "b) Increasing resources as needed", "c) Deleting data"], answer: "b" }
+      ],
+
+      "C Programming": [
+        { question: "Who developed C language?", options: ["a) James Gosling", "b) Dennis Ritchie", "c) Bjarne Stroustrup"], answer: "b" },
+        { question: "Which of the following is a valid data type in C?", options: ["a) string", "b) integer", "c) float"], answer: "c" },
+        { question: "What is the correct syntax to print in C?", options: ["a) cout<<", "b) Console.WriteLine", "c) printf()"], answer: "c" },
+        { question: "What is the extension of C file?", options: ["a) .cpp", "b) .py", "c) .c"], answer: "c" },
+        { question: "Which keyword is used to declare a constant?", options: ["a) constant", "b) final", "c) const"], answer: "c" }
+      ],
+
+      "C++ Programming": [
+        { question: "Who is the creator of C++?", options: ["a) Dennis Ritchie", "b) Bjarne Stroustrup", "c) James Gosling"], answer: "b" },
+        { question: "Which feature is added in C++ over C?", options: ["a) Procedural Programming", "b) Object-Oriented Programming", "c) Scripting"], answer: "b" },
+        { question: "Which is a valid C++ class declaration?", options: ["a) class MyClass {}", "b) class: MyClass {}", "c) def class MyClass"], answer: "a" },
+        { question: "What does OOP stand for?", options: ["a) Object Oriented Programming", "b) Online Oriented Programming", "c) Open Order Processing"], answer: "a" },
+        { question: "Which keyword is used to create objects?", options: ["a) define", "b) new", "c) object"], answer: "b" }
+      ],
+
+      "DevOps": [
+        { question: "What does DevOps stand for?", options: ["a) Development and Options", "b) Development and Operations", "c) Device and Operations"], answer: "b" },
+        { question: "Which tool is used for Continuous Integration?", options: ["a) GitHub", "b) Jenkins", "c) Docker"], answer: "b" },
+        { question: "What is the use of Docker?", options: ["a) Hosting", "b) Virtualization", "c) Containerization"], answer: "c" },
+        { question: "Which DevOps tool is used for version control?", options: ["a) Git", "b) Jenkins", "c) Kubernetes"], answer: "a" },
+        { question: "Which of the following is a DevOps practice?", options: ["a) Manual Testing", "b) Continuous Deployment", "c) Waterfall Model"], answer: "b" }
+      ]
+    };
+
+    function getCourseFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("course") || "Python Basics"; // Default to Python
+    }
+
+    function loadQuiz() {
+      const course = getCourseFromURL();
+      document.getElementById("quizTitle").innerText = `Quiz: ${course}`;
+
+      const quizData = courseQuizzes[course];
+      const quizQuestionsDiv = document.getElementById("quizQuestions");
+
+      quizQuestionsDiv.innerHTML = ""; // Clear previous questions
+
+      quizData.forEach((q, index) => {
+        let questionHTML = `<div class=question>
+        <p>${index + 1}. ${q.question}</p>`;
+        q.options.forEach(opt => {
+          questionHTML += `<label><input type="radio" name="q${index}" value="${opt[0]}"> ${opt}</label>`;
+        });
+        questionHTML += `</div>`;
+        quizQuestionsDiv.innerHTML += questionHTML;
+      });
+    }
+
+    function checkAnswers() {
+      const course = getCourseFromURL();
+      const quizData = courseQuizzes[course];
+      let score = 0;
+      let totalQuestions = quizData.length;
+
+      quizData.forEach((q, index) => {
+        let selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selectedOption && selectedOption.value === q.answer) {
+          score++;
+        }
+      });
+
+      document.getElementById("scoreText").innerText = `You scored ${score} out of ${totalQuestions}`;
+      document.getElementById("popupBox").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+
+      // Show the "Re-Learn" button if score is below 4
+let relearnBtn = document.getElementById("relearnBtn");
+let certBtn = document.getElementById("certificateButton");
+
+// Course URL mapping
+let courseLinks = {
+  "Python Basics": "{{ url_for('python') }}",
+  "Web Development": "{{ url_for('web_development') }}",
+  "Machine Learning": "{{ url_for('machinelearning') }}",
+  "Cybersecurity": "{{ url_for('cybersecurity') }}",
+  "Artificial Intelligence": "{{ url_for('artificial') }}",
+  "Cloud Computing":"{{ url_for('cloudcomputing')}}"
+};
+
+if (score < 4) {
+  relearnBtn.style.display = "block";
+  certBtn.style.display = "none"; // Hide certificate button
+
+  relearnBtn.onclick = function () {
+    if (courseLinks[course]) {
+      window.location.href = courseLinks[course];
+    } else {
+      window.location.href = "/courses/default.html";
+    }
+  };
+} else {
+  // Show "Get Certificate" button
+  relearnBtn.style.display = "none"; // Hide relearn button
+  certBtn.style.display = "block";
+
+  certBtn.onclick = function () {
+    window.location.href = "{{ url_for('certificate') }}"; // Redirect to certificate page
+  };
+}
+    }
+
+    function closePopup() {
+      document.getElementById("popupBox").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function relearnCourse() {
+      const course = getCourseFromURL();
+      window.location.href = `course.html?course=${encodeURIComponent(course)}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadQuiz();
+      document.getElementById("submitBtn").addEventListener("click", checkAnswers);
+    });
+
+  </script>
+
+</body>
+
+</html>

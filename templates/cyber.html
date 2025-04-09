@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cybersecurity Password Guessing Game</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      font-size: 36px;
+      color: #831238;
+    }
+    .game-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      max-width: 450px;
+      margin: auto;
+      margin-top: 30px;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      width: 80%;
+      border: 2px solid #831238;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin-top: 10px;
+      background: #831238;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #631026;
+    }
+    #feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .success {
+      color: #2ecc71;
+    }
+    .failure {
+      color: #e74c3c;
+    }
+    #finish-game {
+      display: none;
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cybersecurity Password Guessing Game</h1>
+
+  <div class="game-container">
+    <p>Your goal is to guess the secret password.</p>
+    <p>Initial Hint: <span id="initialHint"></span></p>
+
+    <input type="text" id="passwordGuess" maxlength="10" placeholder="Enter Password" />
+    <br>
+    <button onclick="checkGuess()">Submit Guess</button>
+
+    <p id="feedback"></p>
+    <p>Attempts Left: <span id="attempts">5</span></p>
+    <p>Hint: <span id="hint"></span></p>
+
+    <button id="finish-game" onclick="completeGame()">Finish Game</button>
+  </div>
+
+  <script>
+  
+  const secretPassword = "cyber123";
+  let attemptsLeft = 5;
+
+  const username = "{{ username }}";  // Must be passed from Flask using Jinja2
+  const storageKey = `completedGames_${username}`;
+  const starKey = `gameStars_${username}`;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("initialHint").textContent = generateInitialHint();
+  });
+
+  function generateInitialHint() {
+    return secretPassword.slice(0, 3) + "_".repeat(secretPassword.length - 3);
+  }
+
+  function generateHint(userGuess) {
+    let hint = "";
+    for (let i = 0; i < secretPassword.length; i++) {
+      hint += userGuess[i] === secretPassword[i] ? userGuess[i] : "_";
+    }
+    return hint;
+  }
+
+  function checkGuess() {
+    const userGuess = document.getElementById("passwordGuess").value;
+    const feedback = document.getElementById("feedback");
+    const attempts = document.getElementById("attempts");
+    const hint = document.getElementById("hint");
+    const finishButton = document.getElementById("finish-game");
+
+    if (userGuess === secretPassword) {
+      feedback.textContent = "Correct! You've cracked the password!";
+      feedback.className = "success";
+      attempts.textContent = "You won!";
+      hint.textContent = secretPassword;
+      document.getElementById("passwordGuess").disabled = true;
+      finishButton.style.display = "inline-block";
+    } else {
+      attemptsLeft--;
+      attempts.textContent = attemptsLeft;
+      hint.textContent = generateHint(userGuess);
+      feedback.textContent = "Incorrect guess, try again!";
+      feedback.className = "failure";
+
+      if (attemptsLeft === 0) {
+        feedback.textContent = `Game Over! The correct password was "${secretPassword}".`;
+        feedback.className = "failure";
+        document.getElementById("passwordGuess").disabled = true;
+      }
+    }
+
+    document.getElementById("passwordGuess").value = '';
+  }
+
+  function completeGame() {
+    let completedGames = JSON.parse(localStorage.getItem(storageKey)) || [];
+    let stars = JSON.parse(localStorage.getItem(starKey)) || {};
+
+    if (!completedGames.includes("cyber")) {
+      completedGames.push("cyber");
+      localStorage.setItem(storageKey, JSON.stringify(completedGames));
+    }
+
+    if (!stars["cyber"]) {
+      stars["cyber"] = true;
+      localStorage.setItem(starKey, JSON.stringify(stars));
+    }
+
+    alert("✅ Game completed! You earned 1 star 🌟");
+    window.location.href = "/game";
+  }
+
+</script>
+
+    
+</body>
+</html>
