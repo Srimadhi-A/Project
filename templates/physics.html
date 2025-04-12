@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/python.css') }}">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand">Study Space</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="course-info">
+      <h2>Introduction to Physics</h2>
+      <p><strong>Instructor:</strong> Dr. Alex Kumar</p>
+      <p>Starts April 15</p>
+      <p>18,430 already enrolled</p>
+    </section>
+
+    <section class="course-details">
+      <div class="modules">
+        <h3>6 modules</h3>
+        <p>Explore the basics of physics, from mechanics to thermodynamics, electromagnetism, and more.</p>
+      </div>
+      <div class="rating">
+        <h3>4.9 ★</h3>
+        <p>(3,104 reviews)</p>
+      </div>
+      <div class="time">
+        <h3>12 hours to complete</h3>
+        <p>4 weeks at 3 hours per week</p>
+      </div>
+      <div class="flexible">
+        <h3>Flexible schedule</h3>
+        <p>Learn at your own pace</p>
+      </div>
+      <div class="feedback">
+        <h3>97%</h3>
+        <p>Most learners found this course effective</p>
+      </div>
+    </section>
+
+    <div class="container1">
+      <h2>Course Modules</h2>
+      <div class="module-section">
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 1: Introduction to Physics</h3>
+          <div class="module-content">
+            <ul>
+              <li>What is Physics?</li>
+              <li>Importance of Physics in Everyday Life</li>
+              <li>Basic Principles of Physics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 2: Classical Mechanics</h3>
+          <div class="module-content">
+            <ul>
+              <li>Newton's Laws of Motion</li>
+              <li>Work, Energy, and Power</li>
+              <li>Conservation Laws</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 3: Thermodynamics</h3>
+          <div class="module-content">
+            <ul>
+              <li>Heat, Temperature, and Energy</li>
+              <li>Laws of Thermodynamics</li>
+              <li>Heat Engines and Entropy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 4: Electromagnetism</h3>
+          <div class="module-content">
+            <ul>
+              <li>Electrostatics and Electric Fields</li>
+              <li>Magnetism and Electromagnetic Waves</li>
+              <li>Maxwell's Equations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 5: Optics</h3>
+          <div class="module-content">
+            <ul>
+              <li>Reflection and Refraction</li>
+              <li>Lenses and Mirrors</li>
+              <li>Optical Instruments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module">
+          <h3 onclick="toggleModule(this)">Module 6: Modern Physics</h3>
+          <div class="module-content">
+            <ul>
+              <li>Quantum Mechanics</li>
+              <li>Special Relativity</li>
+              <li>Atomic and Nuclear Physics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- What You Will Learn Section -->
+      <div class="learn-section">
+        <h3>What You Will Learn in Study Space</h3>
+        <ul>
+          <li>Understand the fundamentals of physics, including classical mechanics and thermodynamics.</li>
+          <li>Learn about electromagnetism and optics in real-world applications.</li>
+          <li>Gain insights into the revolutionary concepts of quantum mechanics and relativity.</li>
+          <li>Master the principles that govern the physical universe around us.</li>
+        </ul>
+      </div>
+
+      {% if enrolled %}
+      <a href="{{ url_for('physicscourse') }}" class="btn btn-success">
+        Start Learning
+      </a>
+      {% else %}
+      <form action="{{ url_for('enroll') }}" method="POST">
+        <input type="hidden" name="course_id" value="18">
+        <input type="hidden" name="course_name" value="Physics">
+        <input type="hidden" name="course_cost" value="299">
+        <input type="hidden" name="course_duration" value="4 weeks">
+        <button type="submit" class="enroll-btn">Enroll Now</button>
+      </form>
+      {% endif %}
+    </div>
+  </main>
+
+  <script>
+    // Toggle module content visibility
+    function toggleModule(module) {
+      const content = module.nextElementSibling;
+      content.classList.toggle("open");
+      module.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

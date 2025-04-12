@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Manipulation and Cleaning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!-- unit1 -->
+<div id="unit1" class="unit active">
+    <div class="container">
+        <h1>Data Analysis Fundamentals</h1>
+        <p>Understand the core concepts and techniques of data analysis for extracting insights and making informed decisions.</p>
+        <h2>Course Overview</h2>
+        <p>This module introduces you to the essential concepts of data analysis, which is crucial for turning raw data into meaningful insights. Whether you're working in business, healthcare, or science, data analysis helps you interpret complex datasets to drive decisions and predictions.</p>
+        <p>Each unit will walk you through various aspects of data analysis, including data cleaning, exploration, visualization, and statistical techniques.</p>
+
+        <h1>Unit 1: Introduction to Data Analysis</h1>
+        <h2>What is Data Analysis?</h2>
+        <p>Data analysis is the process of inspecting, cleaning, transforming, and modeling data to discover useful information, draw conclusions, and support decision-making. It's a critical part of data science and business intelligence, as it allows organizations to make sense of large datasets.</p>
+        <p>Understanding how to effectively analyze data is essential for making data-driven decisions and driving business strategies.</p>
+
+        <h3>Why is Data Analysis Important?</h3>
+        <p>Data analysis is crucial for several reasons:</p>
+        <ul>
+            <li>It helps organizations make informed decisions based on empirical data rather than intuition or guesswork.</li>
+            <li>It uncovers trends, patterns, and insights that would be otherwise hidden in raw data.</li>
+            <li>It supports the optimization of processes, cost reduction, and performance improvement.</li>
+            <li>It enables predictive analytics for forecasting and risk assessment.</li>
+        </ul>
+
+        <h3>Key Steps in Data Analysis</h3>
+        <p>Here are the primary steps involved in the data analysis process:</p>
+        <ol>
+            <li><strong>Data Collection:</strong> Gathering relevant data from various sources such as databases, surveys, or APIs.</li>
+            <li><strong>Data Cleaning:</strong> Removing errors, missing values, and inconsistencies from the dataset to ensure the data is accurate and usable.</li>
+            <li><strong>Exploratory Data Analysis (EDA):</strong> Summarizing the main characteristics of the data using statistics and visualizations to uncover patterns and insights.</li>
+            <li><strong>Statistical Analysis:</strong> Applying statistical tests and models to understand relationships and test hypotheses.</li>
+            <li><strong>Data Visualization:</strong> Using charts, graphs, and other visual tools to present findings clearly and effectively.</li>
+        </ol>
+
+        <h3>Data Analysis Representation</h3>
+        <p>Data analysis is typically represented as a series of steps, where raw data is transformed into actionable insights:</p>
+        <ul>
+            <li><strong>Data:</strong> Raw data collected from various sources.</li>
+            <li><strong>Data Cleaning:</strong> Processing data to remove errors, outliers, and missing values.</li>
+            <li><strong>Insights:</strong> Valuable findings that help inform decisions or strategies.</li>
+        </ul>
+
+        <h3>Applications of Data Analysis</h3>
+        <p>Data analysis is used across many fields:</p>
+        <ul>
+            <li><strong>Business Intelligence:</strong> Analyzing sales data, customer feedback, and market trends to optimize business strategies.</li>
+            <li><strong>Healthcare:</strong> Analyzing patient data, treatment outcomes, and healthcare trends to improve services and patient care.</li>
+            <li><strong>Financial Analysis:</strong> Analyzing market data, financial reports, and trends to make investment decisions.</li>
+            <li><strong>Scientific Research:</strong> Analyzing experimental data to confirm hypotheses and discover new findings.</li>
+        </ul>
+
+        <h3>Data Analysis Example</h3>
+        <p>Here’s an example of data analysis in action, where data cleaning and visualization reveal insights:</p>
+        <pre>
+Before Data Cleaning (Raw Data):
+Name   Age   Income
+John   28    $40000
+Jane   NA    $50000
+Doe    35    $60000
+
+After Data Cleaning (Processed Data):
+Name   Age   Income
+John   28    $40000
+Jane   30    $50000
+Doe    35    $60000
+        </pre>
+
+        <h3>Data Analysis Techniques</h3>
+        <p>Common techniques in data analysis include:</p>
+        <ul>
+            <li><strong>Descriptive Statistics:</strong> Summarizing data using measures such as mean, median, mode, and standard deviation.</li>
+            <li><strong>Correlation Analysis:</strong> Analyzing the relationships between different variables to see if they move together.</li>
+            <li><strong>Regression Analysis:</strong> Modeling the relationship between a dependent variable and one or more independent variables.</li>
+            <li><strong>Hypothesis Testing:</strong> Conducting tests to validate assumptions or hypotheses about the data.</li>
+        </ul>
+    </div>
+    <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+</div>
+<!-- unit2 -->
+<div id="unit2" class="unit">
+    <h1>Unit 2: Understanding Data Analysis Techniques</h1>
+    <h2>Introduction to Data Analysis</h2>
+    <p>Data analysis is a crucial process in extracting meaningful insights from raw data. This unit focuses on understanding the key techniques, methods, and tools used for effective data analysis.</p>
+
+    <h3>Types of Data Analysis</h3>
+    <p>Data analysis can be classified into several techniques based on the data type and problem-solving approach:</p>
+
+    <ul>
+        <li><strong>Descriptive Analysis:</strong> Summarizes historical data to identify trends and patterns, such as calculating averages or identifying correlations.</li>
+        <li><strong>Exploratory Data Analysis (EDA):</strong> Involves visually and statistically exploring data to understand its structure, detect anomalies, and form hypotheses.</li>
+        <li><strong>Inferential Analysis:</strong> Uses statistical techniques to make predictions or generalizations about a population based on a sample of data.</li>
+        <li><strong>Predictive Analysis:</strong> Utilizes historical data and statistical models to forecast future trends and behaviors, commonly used in machine learning.</li>
+        <li><strong>Prescriptive Analysis:</strong> Provides actionable recommendations based on data analysis to optimize decision-making processes.</li>
+        <li><strong>Causal Analysis:</strong> Determines cause-and-effect relationships by testing hypotheses and analyzing patterns over time.</li>
+    </ul>
+
+    <h3>Why Data Analysis Is Important?</h3>
+    <p>Effective data analysis can lead to better decision-making and enhanced problem-solving capabilities. Key reasons why data analysis is essential:</p>
+    <ul>
+        <li>It helps identify trends, correlations, and outliers that can drive business strategies.</li>
+        <li>It enables accurate forecasting and prediction of future outcomes based on historical data.</li>
+        <li>It helps in uncovering hidden patterns and relationships in complex datasets.</li>
+        <li>It improves decision-making by providing data-driven insights and reducing risks.</li>
+        <li>It allows organizations to optimize resources, processes, and operations.</li>
+    </ul>
+
+    <h3>Handling Missing or Incomplete Data in Data Analysis</h3>
+    <p>Missing or incomplete data is common in real-world datasets. The following strategies can be used to handle such data effectively in analysis:</p>
+
+    <ul>
+        <li><strong>Null Values:</strong> Represent missing data by using null values or placeholders, and apply techniques to impute missing values where possible.</li>
+        <li><strong>Imputation:</strong> Impute missing values using mean, median, or mode for numerical data or using the most frequent category for categorical data.</li>
+        <li><strong>Data Interpolation:</strong> For numerical datasets, interpolation techniques can estimate missing values based on surrounding data points.</li>
+        <li><strong>Removing Missing Data:</strong> In cases where missing data cannot be imputed, rows or columns with significant missing values may be excluded.</li>
+        <li><strong>Handling Outliers:</strong> Identifying and treating outliers using statistical methods to avoid skewed results.</li>
+    </ul>
+
+    <h3>Example: Handling Missing Data in a Dataset</h3>
+    <p>In a dataset representing sales transactions, some entries may have missing values for the price or quantity sold. Here’s how you can handle that:</p>
+    
+    <h4>1. Data Imputation:</h4>
+    <p>If the price is missing for a transaction, it can be filled in with the mean price of similar transactions.</p>
+
+    <h4>2. Removal of Rows:</h4>
+    <p>If a large number of features are missing for a row, it might be better to exclude that row from the analysis.</p>
+
+    <h4>3. Data Normalization:</h4>
+    <p>Ensure that the data is normalized to maintain consistency across features, especially when dealing with mixed numerical and categorical data.</p>
+
+    <h3>Choosing the Right Data Analysis Method</h3>
+    <p>Choosing the right analysis technique depends on the data at hand and the goals of your analysis. For instance, if your goal is to forecast future sales, predictive analysis would be most appropriate. For identifying trends and outliers, exploratory data analysis (EDA) would be a good starting point. Understanding the type of data you're working with and your desired outcome is key to selecting the best approach.</p>
+
+    <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+</div>
+<!-- unit 3 -->
+<div id="unit3" class="unit">
+    <h1>Unit 3: Understanding and Correcting Data Analysis Issues</h1>
+
+    <h2>Why Correct Data Analysis Issues?</h2>
+    <p>
+        In data analysis, incorrect handling of data can lead to inaccurate conclusions, misleading insights, and faulty decision-making. Properly cleaning, processing, and interpreting data is crucial to ensure reliable and actionable results. Issues like missing data, outliers, and incorrect transformations can compromise the quality of your analysis.
+        <br><br>
+        Correcting these issues helps improve the accuracy of your analysis, ensuring that your findings are based on solid data. Addressing these problems efficiently also speeds up the analysis process and prevents errors from propagating in subsequent steps.
+    </p>
+
+    <h3>Common Data Analysis Issues</h3>
+    <ul>
+        <li>Missing data leading to biased results</li>
+        <li>Outliers that skew statistical analysis and modeling</li>
+        <li>Incorrect data transformations or scaling</li>
+        <li>Data inconsistencies due to multiple data sources or formats</li>
+        <li>Inadequate handling of categorical vs. numerical data types</li>
+    </ul>
+
+    <h3>How to Correct Data Analysis Issues</h3>
+    <ol>
+        <li>Handle Missing Data</li>
+        <pre>import pandas as pd
+data = pd.read_csv('data.csv')
+data.fillna(method='ffill', inplace=True)  # Forward fill missing values</pre>
+
+        <li>Remove or Transform Outliers</li>
+        <pre>from scipy import stats
+z_scores = stats.zscore(data)
+data_cleaned = data[(z_scores < 3)]  # Remove outliers based on Z-score</pre>
+
+        <li>Apply Correct Data Transformations</li>
+        <pre>from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+data_scaled = scaler.fit_transform(data)  # Standardize the data for better performance</pre>
+
+        <li>Handle Categorical Data Properly</li>
+        <pre>data_dummies = pd.get_dummies(data['category_column'])  # Convert categorical data to numerical using one-hot encoding</pre>
+
+        <li>Combine and Format Data Sources</li>
+        <pre>data_combined = pd.merge(df1, df2, on='common_column')  # Merge data from multiple sources</pre>
+
+        <li>Ensure Correct Data Types</li>
+        <pre>data['column'] = data['column'].astype('float64')  # Ensure the column has the correct data type</pre>
+
+        <li>Normalize Data for Comparison</li>
+        <pre>from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+data_normalized = scaler.fit_transform(data)  # Normalize data for comparisons between variables</pre>
+
+        <li>Apply Feature Engineering Techniques</li>
+        <pre>data['new_feature'] = data['column1'] * data['column2']  # Create new features from existing data</pre>
+
+        <li>Dealing with Duplicates</li>
+        <pre>data.drop_duplicates(inplace=True)  # Remove duplicate rows from the dataset</pre>
+
+        <li>Use Statistical Techniques for Imputation</li>
+        <pre>from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(strategy='mean')
+data_imputed = imputer.fit_transform(data)  # Fill missing values with the mean of the column</pre>
+
+    </ol>
+
+    <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+</div>
+    <div id="unit4" class="unit">
+        <h1>Unit 4: Introduction to Data Analysis</h1>
+        <h2>What is Data Analysis?</h2>
+        <p>Data analysis is the process of inspecting, cleaning, transforming, and modeling data to discover useful information, inform conclusions, and support decision-making. It involves using statistical and computational methods to interpret data in a meaningful way.</p>
+
+        <h3>Why is Data Analysis Important?</h3>
+        <p>Data analysis is critical in various fields, including business, healthcare, finance, and science. It helps in understanding trends, making informed decisions, and solving complex problems by extracting insights from raw data.</p>
+
+        <h4>Applications of Data Analysis</h4>
+        <ul>
+            <li><strong>Business Analytics:</strong> Analyzing sales data, customer behavior, and financial performance to make strategic decisions.</li>
+            <li><strong>Healthcare:</strong> Analyzing patient data, medical records, and clinical trials to improve healthcare outcomes.</li>
+            <li><strong>Finance:</strong> Analyzing stock prices, market trends, and investment portfolios to make profitable financial decisions.</li>
+            <li><strong>Scientific Research:</strong> Data analysis in research helps interpret experimental data, test hypotheses, and draw conclusions.</li>
+        </ul>
+
+        <h3>Basic Steps in Data Analysis</h3>
+        <p>Data analysis generally involves the following steps:</p>
+
+        <h4>1. Data Collection</h4>
+        <p>The first step in data analysis is collecting the relevant data. This can include data from surveys, experiments, or public datasets.</p>
+
+        <h4>2. Data Cleaning</h4>
+        <p>Data cleaning involves removing inconsistencies, missing values, and errors in the dataset. This step ensures that the data is accurate and usable for analysis.</p>
+
+        <h4>3. Data Exploration</h4>
+        <p>Exploratory data analysis (EDA) is a critical step where you visually and statistically explore the data to identify patterns, trends, and relationships.</p>
+
+        <pre><code>
+    # Python: Data Exploration with pandas
+    import pandas as pd
+    df = pd.read_csv('data.csv')
+    print(df.describe())  # Get summary statistics
+    print(df.corr())      # Get correlation between variables
+        </code></pre>
+
+        <h4>4. Data Modeling</h4>
+        <p>Data modeling involves applying statistical or machine learning models to the data to make predictions or uncover insights. This step can involve linear regression, decision trees, or clustering algorithms.</p>
+
+        <pre><code>
+    # Python: Linear Regression Example
+    from sklearn.linear_model import LinearRegression
+    import numpy as np
+    X = np.array([[1], [2], [3], [4], [5]])  # Example independent variable
+    y = np.array([1, 2, 3, 4, 5])  # Dependent variable
+    model = LinearRegression().fit(X, y)
+    predictions = model.predict(X)
+    print(predictions)
+        </code></pre>
+
+        <h4>5. Data Visualization</h4>
+        <p>Visualization is a key step in data analysis to communicate findings clearly. It involves using charts and graphs like histograms, scatter plots, and line charts to visualize patterns and trends.</p>
+
+        <pre><code>
+    # Python: Visualize Data with Matplotlib
+    import matplotlib.pyplot as plt
+    import numpy as np
+    x = np.linspace(0, 10, 100)
+    y = np.sin(x)
+    plt.plot(x, y)
+    plt.title('Sine Wave')
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.show()
+        </code></pre>
+
+        <h3>Working with Data Analysis in JavaScript</h3>
+        <p>JavaScript can also be used for basic data analysis with the help of libraries like D3.js and math.js. Here’s how you can perform simple data analysis tasks:</p>
+
+        <h4>Data Summarization in JavaScript</h4>
+        <pre><code>
+    let data = [10, 20, 30, 40, 50];
+    let mean = data.reduce((a, b) => a + b, 0) / data.length;
+    console.log('Mean:', mean);
+        </code></pre>
+
+        <h4>Data Visualization in JavaScript</h4>
+        <pre><code>
+    const data = [1, 2, 3, 4, 5];
+    const chart = document.createElement('canvas');
+    document.body.appendChild(chart);
+    const ctx = chart.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    data.forEach((value, index) => {
+        ctx.lineTo(50 + index * 50, 50 + value * 10);
+    });
+    ctx.stroke();
+        </code></pre>
+
+        <h3>Best Practices for Data Analysis</h3>
+        <ul>
+            <li><strong>Clean the Data:</strong> Always clean your data before performing any analysis. Inconsistent or missing data can lead to misleading results.</li>
+            <li><strong>Use the Right Tools:</strong> Use libraries like pandas in Python, or D3.js in JavaScript, for efficient data manipulation and visualization.</li>
+            <li><strong>Understand the Data:</strong> Always explore and visualize the data to uncover trends and relationships before diving into complex analysis.</li>
+            <li><strong>Validate Your Results:</strong> Use techniques like cross-validation to ensure your models are accurate and reliable.</li>
+        </ul>
+
+        <h3>Real-World Applications of Data Analysis</h3>
+        <ul>
+            <li><strong>Market Research:</strong> Analyzing customer preferences and behavior to inform business strategies.</li>
+            <li><strong>Healthcare Analysis:</strong> Analyzing patient records, treatment efficacy, and trends in health data to improve care.</li>
+            <li><strong>Financial Analysis:</strong> Analyzing financial data to make investment decisions and manage risk.</li>
+            <li><strong>Sports Analytics:</strong> Analyzing player performance, team statistics, and game outcomes to inform coaching decisions.</li>
+        </ul>
+
+        <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+    </div>
+<div id="unit5" class="unit">
+    <h1>Unit 5: Working with Data Matrices in Data Analysis</h1>
+    <p>Learn how to use data matrices for efficient representation and analysis of large datasets, helping you make data-driven decisions and uncover valuable insights.</p>
+
+    <h2>What is a Data Matrix in Data Analysis?</h2>
+    <p>A data matrix in data analysis refers to a two-dimensional array or table that organizes data in rows and columns, where each element represents a data point. These matrices allow analysts to efficiently perform operations such as aggregations, transformations, and comparisons across different data attributes.</p>
+
+    <h3>Key Concepts in Data Matrices</h3>
+    <ul>
+        <li><strong>Matrix Representation of Data</strong>: Using rows for individual records and columns for features or attributes, a data matrix allows for easy manipulation and transformation of large datasets.</li>
+        <li><strong>Dynamic Metrics Handling</strong>: A data matrix can store dynamic data across different time periods, allowing for fast updates and comprehensive analysis.</li>
+        <li><strong>Time-Series Data</strong>: Data matrices can store time-series data, helping you analyze trends and patterns over time.</li>
+        <li><strong>Multi-Dimensional Analysis</strong>: Data matrices can be extended to multi-dimensional data, incorporating additional dimensions like customer segments or geographic regions for deeper insights.</li>
+    </ul>
+
+    <h3>Why Use Data Matrices for Data Analysis?</h3>
+    <p>Data matrices offer several advantages when working with large datasets in data analysis:</p>
+    <ul>
+        <li><strong>Efficient Data Representation</strong>: A matrix format makes it easier to store and manage large datasets, facilitating quick analysis and exploration of the data.</li>
+        <li><strong>Flexible Data Processing</strong>: Data matrices allow for operations like filtering, grouping, and aggregation, which are essential for in-depth analysis and deriving actionable insights.</li>
+        <li><strong>Visualization of Data</strong>: Data matrices can be easily visualized using tools like heatmaps or pivot tables, helping analysts identify trends, patterns, and anomalies.</li>
+        <li><strong>Predictive Analysis</strong>: With structured data, machine learning models can be applied effectively for predictive analysis, helping forecast future trends and outcomes.</li>
+    </ul>
+
+    <h3>Methods for Creating and Using Data Matrices in Data Analysis</h3>
+    <ul>
+        <li><strong>Creating a Simple Data Matrix</strong>: You can create a data matrix to store data points such as numerical features, categories, or time-series values for analysis.</li>
+<pre>
+# Example using Python to create a basic data matrix for analysis
+import pandas as pd
+
+data = {
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03'],
+    'Sales': [100, 150, 120],
+    'Revenue': [1000, 1500, 1200],
+    'Profit': [200, 300, 240]
+}
+
+df = pd.DataFrame(data)
+print(df)
+</pre>
+        <li><strong>Advanced Matrix Operations</strong>: Perform operations such as calculating averages, trends, or correlations between variables using data matrices.</li>
+<pre>
+# Example of calculating average revenue using a data matrix
+df['Average Revenue'] = df['Revenue'] / df['Sales']
+print(df)
+</pre>
+        <li><strong>Filtering Data</strong>: Use conditions to filter the data from the matrix to focus on specific values or time periods for deeper analysis.</li>
+<pre>
+# Example of filtering data for high sales days
+high_sales_days = df[df['Sales'] > 120]
+print(high_sales_days)
+</pre>
+        <li><strong>Pivoting Data for Aggregation</strong>: Use pivot tables to aggregate and analyze data across different time periods or categories.</li>
+<pre>
+# Example of pivoting data for monthly revenue analysis
+pivot_data = df.pivot(index='Date', columns='Category', values='Revenue')
+print(pivot_data)
+</pre>
+    </ul>
+
+    <h3>Advanced Techniques with Data Matrices</h3>
+    <ul>
+        <li><strong>Heatmaps for Data Visualization</strong>: Visualize a data matrix using heatmaps to identify correlations and trends between different features.</li>
+<pre>
+# Example of creating a heatmap for data matrix visualization
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+plt.show()
+</pre>
+        <li><strong>Multi-Dimensional Data Matrices</strong>: Expand your data matrix by adding additional dimensions such as region or product category to perform multi-variable analysis.</li>
+<pre>
+# Example of adding additional dimensions to the matrix
+df['Region'] = ['North', 'South', 'East']
+print(df)
+</pre>
+    </ul>
+
+    <h3>Challenges in Working with Data Matrices</h3>
+    <ul>
+        <li><strong>Handling Missing Data</strong>: Data matrices may contain missing or incomplete data, which can be managed using techniques like imputation or removing rows with missing values.</li>
+        <li><strong>Data Scalability</strong>: Large datasets can make matrix operations computationally expensive, requiring optimization techniques or distributed computing frameworks.</li>
+        <li><strong>Data Consistency</strong>: Ensuring consistency across multiple datasets and sources is critical for accurate analysis and decision-making.</li>
+    </ul>
+
+    <h3>Practical Example: Analyzing Data Using a Data Matrix</h3>
+<pre>
+# Sample data for analyzing sales performance
+sales_data = {
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03'],
+    'Product': ['A', 'B', 'C'],
+    'Sales': [100, 150, 120],
+    'Revenue': [1000, 1500, 1200],
+    'Profit': [200, 300, 240]
+}
+
+df_sales = pd.DataFrame(sales_data)
+
+# Calculate metrics like Sales Growth and Profit Margin
+df_sales['Sales Growth'] = df_sales['Sales'] / df_sales['Sales'].shift(1) - 1
+df_sales['Profit Margin'] = df_sales['Profit'] / df_sales['Revenue'] * 100
+
+print(df_sales)
+</pre>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+        <li><strong>Trend Analysis</strong>: Use data matrices to analyze trends and patterns in sales, customer behavior, or market conditions over time.</li>
+        <li><strong>Performance Dashboards</strong>: Visualize data matrix-based dashboards to track key performance indicators (KPIs) across different categories or periods.</li>
+        <li><strong>Market Segmentation</strong>: Segment data based on attributes like demographics, region, or behavior to analyze different customer groups.</li>
+        <li><strong>Forecasting and Predictions</strong>: Use data matrices for time-series analysis and predictive modeling to forecast future outcomes based on historical data.</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+    <p>Data matrices are a powerful tool in data analysis for organizing, manipulating, and visualizing large datasets. They enable analysts to uncover insights, make data-driven decisions, and predict future trends more effectively.</p>
+
+    <b><h1>🎉 Congratulations! You’ve completed the unit on Working with Data Matrices in Data Analysis.</h1></b>
+    <button><a href="{{url_for('theoryquiz')}}">Start Quiz</a></button>
+</div>
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+
+</html>

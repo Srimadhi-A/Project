@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Manipulation and Cleaning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+<!-- unit1 -->
+<div id="unit1" class="unit active">
+    <div class="container">
+        <h1>Chemistry Fundamentals</h1>
+        <p>Understand the core concepts and techniques of chemistry for exploring the properties and behavior of matter.</p>
+        <h2>Course Overview</h2>
+        <p>This module introduces you to the essential concepts of chemistry, which is crucial for understanding the composition, structure, and reactivity of matter. Whether you're studying for academic purposes or pursuing a career in chemistry, this course will help you explore chemical processes and reactions.</p>
+        <p>Each unit will walk you through various aspects of chemistry, including atomic theory, chemical reactions, stoichiometry, and organic chemistry.</p>
+
+        <h1>Unit 1: Introduction to Chemistry</h1>
+        <h2>What is Chemistry?</h2>
+        <p>Chemistry is the scientific study of the properties and behavior of matter. It involves understanding the composition, structure, and changes of substances. By studying chemistry, we learn about the elements, compounds, and the reactions that occur between them, shaping the world around us.</p>
+        <p>Understanding chemistry is essential for fields like medicine, engineering, environmental science, and everyday life applications.</p>
+
+        <h3>Why is Chemistry Important?</h3>
+        <p>Chemistry is crucial for several reasons:</p>
+        <ul>
+            <li>It helps us understand the molecular composition of substances and how they interact.</li>
+            <li>It drives innovation in medicine, energy, and materials science.</li>
+            <li>It allows us to develop new chemicals and products for various industries.</li>
+            <li>It provides solutions to environmental challenges, such as pollution control and sustainability.</li>
+        </ul>
+
+        <h3>Key Concepts in Chemistry</h3>
+        <p>Here are some primary concepts in chemistry:</p>
+        <ol>
+            <li><strong>Atomic Structure:</strong> Understanding the arrangement of electrons, protons, and neutrons in atoms.</li>
+            <li><strong>Chemical Bonding:</strong> Learning how atoms form bonds (ionic, covalent, metallic) to create compounds.</li>
+            <li><strong>Stoichiometry:</strong> Calculating quantities of reactants and products in chemical reactions.</li>
+            <li><strong>Thermochemistry:</strong> Studying the heat energy changes during chemical reactions.</li>
+            <li><strong>Organic Chemistry:</strong> Exploring the chemistry of carbon-containing compounds.</li>
+        </ol>
+
+        <h3>Chemistry Representation</h3>
+        <p>Chemistry is often represented through chemical equations, where reactants are transformed into products:</p>
+        <ul>
+            <li><strong>Reactants:</strong> Substances that undergo chemical reactions.</li>
+            <li><strong>Products:</strong> New substances formed from the chemical reaction.</li>
+        </ul>
+
+        <h3>Applications of Chemistry</h3>
+        <p>Chemistry is used in a wide range of fields:</p>
+        <ul>
+            <li><strong>Pharmaceuticals:</strong> Creating medicines to treat diseases and improve health.</li>
+            <li><strong>Environmental Chemistry:</strong> Understanding chemical processes in the environment, such as pollution and climate change.</li>
+            <li><strong>Industrial Chemistry:</strong> Developing chemicals for manufacturing, agriculture, and energy production.</li>
+            <li><strong>Food Chemistry:</strong> Analyzing food composition, preservation, and safety.</li>
+        </ul>
+
+        <h3>Chemistry Example</h3>
+        <p>Here’s an example of a chemical reaction in action, where the reaction of hydrogen and oxygen forms water:</p>
+        <pre>
+Before Reaction (Reactants):
+H2 (Hydrogen) + O2 (Oxygen)
+
+After Reaction (Product):
+H2O (Water)
+        </pre>
+
+        <h3>Chemistry Techniques</h3>
+        <p>Common techniques in chemistry include:</p>
+        <ul>
+            <li><strong>Titration:</strong> A method to determine the concentration of a solution by reacting it with a standard solution.</li>
+            <li><strong>Chromatography:</strong> A technique for separating and analyzing mixtures of substances.</li>
+            <li><strong>Spectroscopy:</strong> Using light to analyze the composition of substances.</li>
+            <li><strong>Electrochemistry:</strong> Studying chemical reactions that involve the transfer of electrons.</li>
+        </ul>
+    </div>
+    <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+</div>
+<!-- unit2 -->
+<div id="unit2" class="unit">
+    <h1>Unit 2: Understanding Data Analysis Techniques in Chemistry</h1>
+    <h2>Introduction to Data Analysis in Chemistry</h2>
+    <p>Data analysis in chemistry involves examining experimental data, identifying trends, and drawing conclusions based on chemical principles. This unit focuses on techniques and methods used in analyzing chemical data for accurate results.</p>
+
+    <h3>Types of Data Analysis in Chemistry</h3>
+    <p>In chemistry, data analysis can be divided into several categories based on the type of data and the nature of the experiment:</p>
+
+    <ul>
+        <li><strong>Descriptive Analysis:</strong> Summarizes chemical data to identify trends, such as calculating concentrations, reaction rates, or identifying patterns in spectroscopic data.</li>
+        <li><strong>Exploratory Data Analysis (EDA):</strong> Involves visually analyzing chemical data, such as spectra or reaction progress, to detect outliers, relationships, and form hypotheses.</li>
+        <li><strong>Inferential Analysis:</strong> Applies statistical methods to generalize results from a sample of data to a larger chemical population, such as determining the mean concentration or reaction rate.</li>
+        <li><strong>Predictive Analysis:</strong> Uses historical chemical data to predict future outcomes, such as forecasting reaction yields or the behavior of chemical systems under various conditions.</li>
+        <li><strong>Prescriptive Analysis:</strong> Provides recommendations on how to optimize experimental conditions, such as temperature, pressure, or concentration to achieve desired chemical outcomes.</li>
+        <li><strong>Causal Analysis:</strong> Determines cause-and-effect relationships between chemical variables, such as the impact of catalyst concentration on reaction rate.</li>
+    </ul>
+
+    <h3>Why Data Analysis Is Important in Chemistry?</h3>
+    <p>Data analysis is essential for deriving meaningful conclusions from experimental chemical data. Here are key reasons why it is critical in chemistry:</p>
+    <ul>
+        <li>It helps identify trends and relationships between chemical variables, such as concentration and reaction rate.</li>
+        <li>It allows accurate prediction of chemical behaviors based on past experiments.</li>
+        <li>It helps uncover hidden patterns in complex chemical systems that may not be immediately apparent.</li>
+        <li>It improves decision-making in chemical processes by providing data-driven insights into optimal conditions.</li>
+        <li>It ensures the consistency and accuracy of experimental results, improving reproducibility.</li>
+    </ul>
+
+    <h3>Handling Missing or Incomplete Data in Chemistry</h3>
+    <p>In chemistry, missing or incomplete data is common due to experimental constraints or errors. Here's how you can handle it:</p>
+
+    <ul>
+        <li><strong>Null Values:</strong> Missing chemical data can be represented by null values. These can be imputed based on averages or approximated based on surrounding values.</li>
+        <li><strong>Imputation:</strong> Missing values for chemical concentrations or reaction times can be replaced using the mean, median, or mode of similar data.</li>
+        <li><strong>Data Interpolation:</strong> When time series or concentration data is missing, interpolation techniques can be used to estimate missing points based on neighboring values.</li>
+        <li><strong>Removing Missing Data:</strong> For datasets with significant missing data, it may be best to exclude incomplete rows or columns to avoid skewing the results.</li>
+        <li><strong>Handling Outliers:</strong> Outliers can significantly impact the accuracy of chemical analyses, so identifying and treating them is necessary for valid results.</li>
+    </ul>
+
+    <h3>Example: Handling Missing Data in a Chemistry Dataset</h3>
+    <p>Consider an experiment where the concentration of a chemical is measured at different time intervals, but some values are missing. Here's how you might handle that:</p>
+    
+    <h4>1. Data Imputation:</h4>
+    <p>If the concentration data is missing for a time point, you can fill in the missing value with the average concentration from nearby measurements.</p>
+
+    <h4>2. Removal of Rows:</h4>
+    <p>If a large number of time points are missing for a particular experiment, you might choose to remove that row from the dataset.</p>
+
+    <h4>3. Data Normalization:</h4>
+    <p>To ensure consistency, normalize the data by adjusting it to a common scale, especially if you are comparing different chemical reactions.</p>
+
+    <h3>Choosing the Right Data Analysis Method in Chemistry</h3>
+    <p>Choosing the appropriate data analysis method depends on the type of chemical data and the objectives of the experiment. For example, if you're measuring reaction rates, predictive analysis might be useful. To analyze trends in spectroscopic data, exploratory data analysis (EDA) would be helpful. Selecting the right technique based on the data type and experimental goal ensures accurate and meaningful results.</p>
+
+    <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+</div>
+<!-- unit 3 -->
+<div id="unit3" class="unit">
+    <h1>Unit 3: Understanding and Correcting Chemistry Issues</h1>
+
+    <h2>Why Correct Chemistry Experiment Issues?</h2>
+    <p>
+        In chemistry, improper handling of chemical reactions, incorrect measurements, or failure to maintain accurate experimental conditions can lead to unreliable results, misleading conclusions, and unsafe practices. Properly preparing, conducting, and analyzing experiments is crucial to ensure reliable and safe outcomes. Issues like inaccurate measurements, contamination, and improper chemical handling can compromise the quality of your experiments.
+        <br><br>
+        Correcting these issues helps improve the reliability of your results, ensuring that your findings are based on accurate and reproducible experiments. Addressing these problems efficiently also speeds up the experimentation process and minimizes potential risks in subsequent stages.
+    </p>
+
+    <h3>Common Chemistry Experiment Issues</h3>
+    <ul>
+        <li>Inaccurate measurements leading to incorrect concentrations</li>
+        <li>Contamination of samples affecting the purity of the results</li>
+        <li>Improper reaction conditions (temperature, pressure, etc.)</li>
+        <li>Incorrect chemical handling or mixing</li>
+        <li>Failure to properly identify chemical compounds or reactions</li>
+    </ul>
+
+    <h3>How to Correct Chemistry Experiment Issues</h3>
+    <ol>
+        <li>Accurate Measurement of Chemicals</li>
+        <pre>Use a calibrated balance to ensure accurate mass measurements of reactants.</pre>
+
+        <li>Control Reaction Conditions</li>
+        <pre>Use a thermostat or controlled environment to maintain consistent temperature during reactions.</pre>
+
+        <li>Prevent Contamination</li>
+        <pre>Ensure clean equipment and glassware to avoid contamination in your reagents.</pre>
+
+        <li>Proper Chemical Handling</li>
+        <pre>Wear safety equipment and follow proper protocols when handling hazardous chemicals.</pre>
+
+        <li>Identifying Chemical Compounds</li>
+        <pre>Use spectroscopic methods like UV-Vis, IR, or NMR to confirm the identity of compounds.</pre>
+
+        <li>Ensure Correct Chemical Reactions</li>
+        <pre>Balance chemical equations correctly to ensure that reactants and products are in the right proportions.</pre>
+
+        <li>Control for External Variables</li>
+        <pre>Account for factors such as humidity or atmospheric pressure, which could affect reactions.</pre>
+
+        <li>Use Titration for Accurate Concentration Determination</li>
+        <pre>Perform titrations using a standard solution to determine the concentration of an unknown acid or base.</pre>
+
+        <li>Use Standard Laboratory Practices</li>
+        <pre>Follow standard operating procedures for all chemical processes to ensure reproducibility and safety.</pre>
+
+        <li>Keep Detailed Laboratory Notes</li>
+        <pre>Record all experimental conditions, observations, and calculations in a lab notebook for reference.</pre>
+    </ol>
+
+    <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+</div>
+<div id="unit4" class="unit">
+    <h1>Unit 4: Introduction to Chemistry</h1>
+    
+    <h2>What is Chemistry?</h2>
+    <p>Chemistry is the scientific study of matter, its properties, how and why substances combine or separate to form other substances, and how substances interact with energy. It involves the study of atoms, molecules, and chemical reactions to understand the behavior of matter in different conditions.</p>
+
+    <h3>Why is Chemistry Important?</h3>
+    <p>Chemistry is fundamental to many scientific and industrial fields, including medicine, environmental science, energy production, and materials science. It helps in understanding the processes of life, the development of new materials, and solving critical challenges such as energy storage and pollution control.</p>
+
+    <h4>Applications of Chemistry</h4>
+    <ul>
+        <li><strong>Medicine:</strong> Chemistry plays a key role in drug discovery, medical diagnostics, and developing treatments for diseases.</li>
+        <li><strong>Environmental Science:</strong> Chemistry is used to analyze pollutants, manage waste, and develop sustainable practices to protect the environment.</li>
+        <li><strong>Energy Production:</strong> Chemistry is integral in developing renewable energy sources, improving batteries, and enhancing fuel technologies.</li>
+        <li><strong>Materials Science:</strong> Chemistry helps in creating new materials with specific properties, such as polymers, semiconductors, and nanomaterials.</li>
+    </ul>
+
+    <h3>Basic Steps in Chemical Experimentation</h3>
+    <p>Chemical experimentation generally involves the following steps:</p>
+
+    <h4>1. Chemical Reaction Setup</h4>
+    <p>The first step is to properly set up the reaction conditions. This includes choosing the right reactants, solvents, and controlling temperature, pressure, and time.</p>
+
+    <h4>2. Safety Precautions</h4>
+    <p>Safety measures should be prioritized to ensure safe handling of chemicals. Use appropriate personal protective equipment (PPE) like gloves, goggles, and lab coats, and always work in a well-ventilated area.</p>
+
+    <h4>3. Observation and Data Collection</h4>
+    <p>Record all observations during the experiment, such as color changes, temperature fluctuations, or gas production, to help interpret the results.</p>
+
+    <pre><code>
+    # Example: Recording temperature change during a chemical reaction
+    import matplotlib.pyplot as plt
+    temperature = [20, 30, 40, 50, 60]  # Example temperature data in Celsius
+    time = [0, 1, 2, 3, 4]  # Time in minutes
+    plt.plot(time, temperature)
+    plt.title('Temperature vs. Time')
+    plt.xlabel('Time (minutes)')
+    plt.ylabel('Temperature (°C)')
+    plt.show()
+    </code></pre>
+
+    <h4>4. Data Analysis</h4>
+    <p>Analyze the collected data to identify trends, measure reaction rates, or assess the efficiency of the reaction. Techniques like stoichiometry or titration may be applied.</p>
+
+    <pre><code>
+    # Example: Stoichiometric calculations
+    molar_mass_NaOH = 40  # g/mol for NaOH
+    moles_NaOH = 5 / molar_mass_NaOH  # Example calculation for moles of NaOH
+    print("Moles of NaOH:", moles_NaOH)
+    </code></pre>
+
+    <h4>5. Result Interpretation</h4>
+    <p>Interpret the experimental results to conclude whether the reaction proceeded as expected, and determine the yield, purity, or reaction efficiency.</p>
+
+    <h3>Working with Chemistry Data in JavaScript</h3>
+    <p>JavaScript can also be used to visualize chemistry data and perform basic calculations related to chemical reactions.</p>
+
+    <h4>Chemical Reaction Rate Calculation in JavaScript</h4>
+    <pre><code>
+    let reactantConcentration = [1.0, 0.8, 0.6, 0.4, 0.2];  // Example concentrations in mol/L
+    let time = [0, 1, 2, 3, 4];  // Time in minutes
+    let reactionRate = reactantConcentration.map((conc, index) => {
+        return -Math.log(conc / reactantConcentration[0]) / time[index]; // Example of reaction rate calculation
+    });
+    console.log('Reaction Rate:', reactionRate);
+    </code></pre>
+
+    <h4>Chemical Data Visualization in JavaScript</h4>
+    <pre><code>
+    const reactionData = [10, 15, 20, 25, 30];  // Example data for concentration change over time
+    const chart = document.createElement('canvas');
+    document.body.appendChild(chart);
+    const ctx = chart.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    reactionData.forEach((value, index) => {
+        ctx.lineTo(50 + index * 50, 50 + value * 5);
+    });
+    ctx.stroke();
+    </code></pre>
+
+    <h3>Best Practices for Chemistry Experiments</h3>
+    <ul>
+        <li><strong>Prioritize Safety:</strong> Always follow safety protocols and wear appropriate PPE when working with chemicals.</li>
+        <li><strong>Use Proper Measurement Tools:</strong> Ensure accurate measurements by using calibrated balances, volumetric glassware, and appropriate techniques for titration.</li>
+        <li><strong>Analyze and Record Data Carefully:</strong> Be diligent in recording observations and analyzing data accurately, including uncertainties and error margins.</li>
+        <li><strong>Understand the Chemistry:</strong> Have a clear understanding of the chemical reactions and processes before conducting experiments.</li>
+    </ul>
+
+    <h3>Real-World Applications of Chemistry</h3>
+    <ul>
+        <li><strong>Pharmaceutical Chemistry:</strong> Developing new drugs and treatments based on chemical reactions and compounds.</li>
+        <li><strong>Environmental Chemistry:</strong> Studying pollutants, waste treatment, and environmental protection techniques.</li>
+        <li><strong>Material Science:</strong> Designing and synthesizing materials for various industrial applications, including electronics and manufacturing.</li>
+        <li><strong>Forensic Chemistry:</strong> Analyzing substances from crime scenes to assist in criminal investigations.</li>
+    </ul>
+
+    <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+</div>
+<div id="unit5" class="unit">
+    <h1>Unit 5: Introduction to Chemical Analysis</h1>
+    <p>Learn how to use various chemical analysis techniques for efficient examination and characterization of substances, helping you understand chemical reactions and composition.</p>
+
+    <h2>What is Chemical Analysis?</h2>
+    <p>Chemical analysis refers to the process of identifying and quantifying the chemical components of a substance. It involves using various methods such as spectroscopy, chromatography, and titration to determine the composition and structure of materials.</p>
+
+    <h3>Key Concepts in Chemical Analysis</h3>
+    <ul>
+        <li><strong>Qualitative Analysis</strong>: Determining the identity of the chemical components of a substance, such as identifying ions in a solution or elements in a compound.</li>
+        <li><strong>Quantitative Analysis</strong>: Measuring the concentration or quantity of a specific substance in a sample.</li>
+        <li><strong>Spectroscopy</strong>: Using the interaction of light with matter to determine the structure of molecules and the concentration of substances.</li>
+        <li><strong>Chromatography</strong>: A technique for separating mixtures into their components to analyze individual substances.</li>
+        <li><strong>Titration</strong>: A technique used to determine the concentration of a solution by reacting it with a solution of known concentration.</li>
+    </ul>
+
+    <h3>Why is Chemical Analysis Important?</h3>
+    <p>Chemical analysis is essential in many fields such as pharmaceuticals, environmental science, food safety, and materials science. It helps in identifying contaminants, determining purity, and ensuring the quality of products.</p>
+    <ul>
+        <li><strong>Quality Control:</strong> Chemical analysis ensures that products, such as pharmaceuticals and food, meet safety and quality standards.</li>
+        <li><strong>Environmental Monitoring:</strong> It helps monitor pollutants and trace elements in air, water, and soil.</li>
+        <li><strong>Forensic Science:</strong> Chemical analysis is used to analyze substances found at crime scenes, such as drugs and poisons.</li>
+        <li><strong>Pharmaceutical Research:</strong> It helps in drug development and ensuring the effectiveness and safety of medications.</li>
+    </ul>
+
+    <h3>Methods of Chemical Analysis</h3>
+    <ul>
+        <li><strong>Spectroscopic Methods</strong>: These include UV-Vis spectroscopy, NMR spectroscopy, and IR spectroscopy. These methods provide insights into the molecular structure of substances.</li>
+        <pre>
+# Example: Spectroscopy with Python (simulated data)
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulated absorption data
+wavelengths = np.linspace(200, 800, 100)
+absorption = np.exp(-0.01 * (wavelengths - 400)**2)
+
+plt.plot(wavelengths, absorption)
+plt.title("UV-Vis Absorption Spectrum")
+plt.xlabel("Wavelength (nm)")
+plt.ylabel("Absorption")
+plt.show()
+        </pre>
+
+        <li><strong>Chromatographic Methods</strong>: Methods like Gas Chromatography (GC) and High-Performance Liquid Chromatography (HPLC) separate compounds in a mixture for analysis.</li>
+        <pre>
+# Example: HPLC Analysis in Python (simulated data)
+import matplotlib.pyplot as plt
+
+time = [0, 1, 2, 3, 4, 5, 6, 7]
+concentration = [0, 10, 20, 15, 30, 25, 40, 35]
+
+plt.plot(time, concentration)
+plt.title("Chromatography Analysis")
+plt.xlabel("Time (min)")
+plt.ylabel("Concentration (mg/L)")
+plt.show()
+        </pre>
+
+        <li><strong>Titration</strong>: This involves adding a reagent to a solution until a reaction is complete, used to determine the concentration of a substance.</li>
+        <pre>
+# Example: Titration Calculation in Python
+volume_acid = 25  # mL
+molarity_acid = 0.1  # mol/L
+volume_base = 50  # mL
+molarity_base = (volume_acid * molarity_acid) / volume_base  # mol/L
+
+print(f"The molarity of the base is {molarity_base} mol/L")
+        </pre>
+    </ul>
+
+    <h3>Challenges in Chemical Analysis</h3>
+    <ul>
+        <li><strong>Instrumental Calibration</strong>: Ensuring that analytical instruments are properly calibrated is crucial for accurate results.</li>
+        <li><strong>Interference</strong>: Other compounds may interfere with the analysis, leading to inaccurate results.</li>
+        <li><strong>Sample Contamination</strong>: External contaminants can affect the accuracy of the results, requiring proper sample handling.</li>
+    </ul>
+
+    <h3>Practical Example: Analyzing a Chemical Sample</h3>
+    <pre>
+# Sample data for chemical analysis
+sample_data = {
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03'],
+    'Substance': ['NaCl', 'H2SO4', 'NaOH'],
+    'Concentration': [0.1, 0.2, 0.15],
+    'Volume': [10, 15, 12]
+}
+
+# Simulate a calculation of molarity
+import pandas as pd
+df = pd.DataFrame(sample_data)
+df['Molarity'] = df['Concentration'] / df['Volume']
+print(df)
+        </pre>
+
+    <h3>Real-World Applications of Chemical Analysis</h3>
+    <ul>
+        <li><strong>Environmental Monitoring:</strong> Detecting pollutants such as heavy metals in water or air samples.</li>
+        <li><strong>Pharmaceutical Development:</strong> Ensuring that drugs have the correct chemical composition and purity.</li>
+        <li><strong>Food Quality Control:</strong> Checking for harmful additives and ensuring food products meet health standards.</li>
+        <li><strong>Forensic Chemistry:</strong> Analyzing substances found at crime scenes, such as poisons or drugs.</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+    <p>Chemical analysis is an essential tool in many industries, enabling scientists and professionals to understand the chemical makeup of substances. By applying various techniques such as spectroscopy, chromatography, and titration, it is possible to perform detailed and accurate analysis that informs decision-making and research.</p>
+
+    <b><h1>🎉 Congratulations! You’ve completed the unit on Chemical Analysis.</h1></b>
+    <button><a href="{{url_for('theoryquiz')}}">Start Quiz</a></button>
+</div>
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+</html>

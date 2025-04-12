@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Manipulation and Cleaning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- study space in navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <!--full font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dmcourse.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand">Study Space</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('courses') }}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('game') }}">MindZone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <!-- unit1 -->
+<div id="unit1" class="unit active">
+    <div class="container">
+        <h1>Data Structures Fundamentals</h1>
+        <p>Understand the core data structures essential for programming and problem-solving.</p>
+        <h2>Course Overview</h2>
+        <p>This module introduces you to the fundamental data structures that form the building blocks of most algorithms and applications in computer science.</p>
+        <p>Each unit will walk you through different types of data structures and their applications, including arrays, linked lists, trees, stacks, queues, and hash tables.</p>
+
+        <h1>Unit 1: Introduction to Data Structures</h1>
+        <h2>What are Data Structures?</h2>
+        <p>Data structures are specialized formats for organizing and storing data in a computer to perform operations efficiently. They are fundamental to designing efficient algorithms and optimizing performance.</p>
+        <p>Understanding how to implement and manipulate data structures will help you solve complex problems effectively.</p>
+
+        <h3>Why are Data Structures Important?</h3>
+        <p>Data structures are crucial for several reasons:</p>
+        <ul>
+            <li>They allow efficient storage and retrieval of data.</li>
+            <li>They enable faster problem-solving in algorithms.</li>
+            <li>They help in optimizing space and time complexities of applications.</li>
+            <li>They are used in building complex systems such as databases, operating systems, and web applications.</li>
+        </ul>
+
+        <h3>Key Types of Data Structures</h3>
+        <p>Here are some of the most common data structures:</p>
+        <ol>
+            <li><strong>Array:</strong> A collection of elements stored at contiguous memory locations, accessible via an index.</li>
+            <li><strong>Linked List:</strong> A linear data structure where elements (nodes) are stored in a sequence, each containing a reference (link) to the next node.</li>
+            <li><strong>Stack:</strong> A linear data structure that follows the Last In, First Out (LIFO) principle.</li>
+            <li><strong>Queue:</strong> A linear data structure that follows the First In, First Out (FIFO) principle.</li>
+            <li><strong>Binary Tree:</strong> A tree data structure where each node has at most two children.</li>
+            <li><strong>Hash Table:</strong> A data structure that implements an associative array abstract data type, offering fast data retrieval.</li>
+        </ol>
+
+        <h3>Arrays</h3>
+        <p>Arrays are one of the simplest and most widely used data structures. They provide quick access to elements based on an index.</p>
+        <ul>
+            <li><strong>Fixed Size:</strong> Arrays have a predefined size.</li>
+            <li><strong>Efficient Access:</strong> Accessing elements by index is very efficient (O(1) time complexity).</li>
+            <li><strong>Limitations:</strong> Once the array is created, resizing it can be costly.</li>
+        </ul>
+
+        <h3>Linked Lists</h3>
+        <p>Linked lists consist of nodes, where each node contains data and a reference (or link) to the next node in the sequence.</p>
+        <ul>
+            <li><strong>Dynamic Size:</strong> Unlike arrays, linked lists can grow or shrink dynamically as needed.</li>
+            <li><strong>Insertions/Deletions:</strong> Insertions and deletions are more efficient (O(1)) compared to arrays when the position is known.</li>
+            <li><strong>Memory Overhead:</strong> Linked lists have additional memory overhead due to the storage of pointers.</li>
+        </ul>
+
+        <h3>Stacks</h3>
+        <p>Stacks are linear data structures that follow the Last In, First Out (LIFO) principle, where the most recently added element is removed first.</p>
+        <ul>
+            <li><strong>Push:</strong> Add an element to the stack.</li>
+            <li><strong>Pop:</strong> Remove the most recent element from the stack.</li>
+            <li><strong>Applications:</strong> Stacks are used in function calls, undo operations, and expression evaluation.</li>
+        </ul>
+
+        <h3>Queues</h3>
+        <p>Queues are linear data structures that follow the First In, First Out (FIFO) principle, where the first element added is the first to be removed.</p>
+        <ul>
+            <li><strong>Enqueue:</strong> Add an element to the queue.</li>
+            <li><strong>Dequeue:</strong> Remove the front element from the queue.</li>
+            <li><strong>Applications:</strong> Queues are used in scheduling tasks, managing requests, and buffering data.</li>
+        </ul>
+
+        <h3>Binary Trees</h3>
+        <p>Binary trees are hierarchical data structures where each node has at most two children, often referred to as left and right.</p>
+        <ul>
+            <li><strong>Binary Search Tree (BST):</strong> A special type of binary tree where the left child contains a smaller value, and the right child contains a larger value than the parent.</li>
+            <li><strong>Traversal:</strong> Common traversal methods include Inorder, Preorder, and Postorder traversal.</li>
+        </ul>
+
+        <h3>Hash Tables</h3>
+        <p>Hash tables store data in key-value pairs, offering very fast retrieval by using hash functions to map keys to specific locations.</p>
+        <ul>
+            <li><strong>Time Complexity:</strong> Hash table operations (insert, delete, search) can be done in O(1) time on average.</li>
+            <li><strong>Collisions:</strong> If two keys hash to the same location, a collision occurs, which is handled using techniques like chaining or open addressing.</li>
+        </ul>
+
+        <h3>Data Structures Example</h3>
+        <p>Here is an example of a data structure in action:</p>
+        <pre>
+Before:
+Array: [10, 20, 30, 40]
+Linked List: head -> 10 -> 20 -> 30
+
+After:
+Array: [10, 20, 30, 40, 50]
+Linked List: head -> 10 -> 20 -> 30 -> 40 -> 50
+        </pre>
+    </div>
+    <button onclick="showNext('unit1', 'unit2')">Mark as Done</button>
+</div>
+<!-- unit2 -->
+<div id="unit2" class="unit">
+    <h1>Unit 2: Understanding Data Structures in Programming</h1>
+    <h2>Introduction to Data Structures</h2>
+    <p>In programming, data structures are essential for organizing and managing data efficiently. This unit focuses on understanding the fundamental data structures used in computer science, their types, and when to use them.</p>
+
+    <h3>Types of Data Structures</h3>
+    <p>Data structures can be categorized based on their implementation and usage. Some of the most common types include:</p>
+
+    <ul>
+        <li><strong>Arrays:</strong> A collection of elements identified by index or key. Arrays are useful for storing a fixed-size sequence of elements.</li>
+        <li><strong>Linked Lists:</strong> A linear collection of elements where each element points to the next, making it easier to add or remove elements.</li>
+        <li><strong>Stacks:</strong> A collection of elements that follows the Last In, First Out (LIFO) principle. Useful for reversing actions or managing function calls.</li>
+        <li><strong>Queues:</strong> A collection of elements that follows the First In, First Out (FIFO) principle. Useful for scheduling tasks.</li>
+        <li><strong>Hash Tables:</strong> A structure that maps keys to values for efficient lookup. It’s ideal for fast data retrieval based on unique keys.</li>
+        <li><strong>Graphs:</strong> A set of nodes connected by edges. Graphs are used for representing networks such as social networks, maps, or dependencies.</li>
+        <li><strong>Heaps:</strong> A special tree-based structure used to implement priority queues, allowing for efficient retrieval of the largest or smallest element.</li>
+    </ul>
+
+    <h3>Why Data Structures Are Important?</h3>
+    <p>Choosing the right data structure has a significant impact on the efficiency and performance of a program. Some key reasons data structures are important:</p>
+    <ul>
+        <li>They provide efficient storage and retrieval of data.</li>
+        <li>They enable faster execution of algorithms by optimizing access time.</li>
+        <li>They help in solving complex problems like network routing, dynamic programming, etc.</li>
+        <li>They reduce time complexity and improve scalability in large systems.</li>
+    </ul>
+
+    <h3>Handling Incomplete or Missing Data in Data Structures</h3>
+    <p>When working with data structures, you might encounter incomplete or missing data, especially in situations like data processing or database management. Here's how to handle such issues:</p>
+
+    <ul>
+        <li><strong>Null Values:</strong> Represent missing or undefined values in data structures. Many data structures like arrays, linked lists, and hash tables can store null values as placeholders.</li>
+        <li><strong>Default Values:</strong> Use predefined default values (e.g., 0 for integers, empty string for text) to fill missing data in certain structures.</li>
+        <li><strong>Lazy Initialization:</strong> Delaying the creation or modification of an element in a structure until it's actually needed, which helps in optimizing memory usage.</li>
+        <li><strong>Segmentation:</strong> Split large data structures into smaller, more manageable segments to deal with missing or inconsistent data.</li>
+        <li><strong>Imputation Techniques:</strong> For numerical data, techniques like interpolation can be used to estimate missing values based on nearby elements.</li>
+    </ul>
+
+    <h3>Example: Handling Missing Data in a Linked List</h3>
+    <p>Consider a scenario where you have a linked list that holds user data, but some nodes might have missing or incomplete information. Here’s how you can handle that:</p>
+    
+    <h4>1. Using Default Nodes:</h4>
+    <p>In the case of missing user information, you can create a default node with placeholder values, ensuring the list’s integrity remains intact.</p>
+
+    <h4>2. Null Pointer Checks:</h4>
+    <p>Always check for null pointers when traversing the linked list to avoid runtime errors due to missing data.</p>
+
+    <h4>3. Imputation Using Neighboring Nodes:</h4>
+    <p>When possible, use the information from neighboring nodes to infer or fill in missing data.</p>
+
+    <h3>Choosing the Right Data Structure</h3>
+    <p>Choosing the appropriate data structure depends on your use case. For example, if you need fast access to elements based on a key, a hash table is ideal. For scenarios involving frequent insertions and deletions, a linked list may be more appropriate. Always evaluate the operations your data structure needs to perform and the trade-offs of each structure before making a decision.</p>
+    
+    <button onclick="showNext('unit2', 'unit3')">Mark as Done</button>
+</div>
+<!-- unit 3 -->
+<div id="unit3" class="unit">
+    <h1>Unit 3: Understanding and Correcting Data Structures</h1>
+
+    <h2>Why Correct Data Structures?</h2>
+    <p>
+        In data science and programming, incorrect data structures can lead to inefficiencies, errors, and complex debugging. Choosing the right data structure for storing and processing data is crucial for optimized performance and scalability.
+        <br><br>
+        For instance, using a list when you need to store key-value pairs can result in inefficient lookups. Similarly, choosing a dictionary when you need an ordered list of elements would not be ideal. Properly structuring data ensures faster access times, reduces memory usage, and makes algorithms more efficient.
+    </p>
+
+    <h3>Common Data Structure Issues</h3>
+    <ul>
+        <li>Using a list when a set would be more appropriate (e.g., removing duplicates)</li>
+        <li>Incorrect use of a stack or queue where a priority queue is required</li>
+        <li>Choosing an array when dynamic resizing is needed (using linked lists instead)</li>
+        <li>Unnecessary use of nested loops due to poor data structure choices</li>
+        <li>Incorrect or inefficient sorting or searching due to suboptimal data structure selection</li>
+    </ul>
+
+    <h3>How to Correct Data Structures</h3>
+    <ol>
+        <li>Use Lists for Ordered Data</li>
+        <pre>my_list = [1, 2, 3, 4, 5]  # List for storing ordered elements</pre>
+
+        <li>Use Sets for Uniqueness</li>
+        <pre>my_set = {1, 2, 3, 4, 5}  # Set for storing unique elements</pre>
+
+        <li>Use Dictionaries for Key-Value Pair Storage</li>
+        <pre>my_dict = {'name': 'Alice', 'age': 30}  # Dictionary for key-value pairs</pre>
+
+        <li>Use Stacks for LIFO (Last In, First Out) Operations</li>
+        <pre>stack = []  # Stack implementation
+stack.append(1)  # Push element
+stack.pop()  # Pop element</pre>
+
+        <li>Use Queues for FIFO (First In, First Out) Operations</li>
+        <pre>from collections import deque
+queue = deque([1, 2, 3])  # Queue implementation
+queue.append(4)  # Enqueue element
+queue.popleft()  # Dequeue element</pre>
+
+        <li>Use Linked Lists for Dynamic Size Data</li>
+        <pre>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None</pre>
+
+        <li>Use Heaps for Efficient Priority Queueing</li>
+        <pre>import heapq
+heap = []
+heapq.heappush(heap, 5)  # Push element into heap
+heapq.heappop(heap)  # Pop minimum element</pre>
+
+        <li>Optimize Sorting with Quick Sort or Merge Sort</li>
+        <pre>def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + [pivot] + quicksort(right)</pre>
+
+        <li>Optimize Searching with Binary Search (for sorted data)</li>
+        <pre>def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1</pre>
+
+        <li>Use Arrays or Lists Based on Size and Operations</li>
+        <pre>my_array = [1, 2, 3]  # Use list or array for static size data</pre>
+
+        <li>Use Hashing for Fast Lookups</li>
+        <pre>my_dict = {'key': 'value'}
+print(my_dict['key'])  # Hashing for quick lookups</pre>
+    </ol>
+
+    <button onclick="showNext('unit3', 'unit4')">Mark as Done</button>
+</div>
+<div id="unit4" class="unit">
+    <h1>Unit 4: Removing Duplicates in Data Structures</h1>
+    <h2>What is Duplicate Data?</h2>
+    <p>Duplicate data refers to repeated or redundant entries in a data structure. For example, having the same element appearing more than once in an array or list. In programming, this can cause inefficiencies and lead to incorrect results in operations like sorting, searching, or processing data.</p>
+
+    <h3>Why is Duplicate Data a Problem?</h3>
+    <p>Duplicate data in data structures can lead to inefficiencies in memory usage, slow down algorithms, and create errors in applications. For example, it can inflate results in aggregation tasks, cause inconsistencies in data processing, and lead to unnecessary computations.</p>
+
+    <h4>Consequences of Ignoring Duplicate Data</h4>
+    <ul>
+        <li><strong>Increased Memory Usage</strong>: Storing duplicate data consumes extra memory that could have been used for more important data.</li>
+        <li><strong>Slower Algorithm Performance</strong>: Algorithms like searching and sorting may take longer when duplicates are present, as they have to process the same data multiple times.</li>
+        <li><strong>Incorrect Results</strong>: In cases where unique data is expected, such as unique user IDs or records, duplicates can result in inaccurate results.</li>
+    </ul>
+
+    <h3>Sources of Duplicate Data in Data Structures</h3>
+    <ul>
+        <li><strong>Inserting Data Multiple Times</strong>: Adding the same element multiple times to a list or array.</li>
+        <li><strong>Errors in Data Collection</strong>: Sometimes, data from different sources or iterations can contain repeated entries.</li>
+        <li><strong>Unoptimized Data Operations</strong>: Inefficient operations in code might lead to inserting duplicates unknowingly.</li>
+    </ul>
+
+    <h3>How to Handle Duplicate Data in Data Structures</h3>
+    <p>There are several ways to handle and remove duplicates depending on the type of data structure you're working with:</p>
+
+    <h4>1. Removing Duplicates from Lists (Python)</h4>
+    <p>If you're working with lists in Python, you can use a variety of techniques to remove duplicates:</p>
+    <pre><code>
+# Remove duplicates using set (unordered collection)
+my_list = [1, 2, 3, 4, 4, 5, 6, 6]
+my_list = list(set(my_list))
+
+# Remove duplicates while maintaining order
+my_list = []
+for item in [1, 2, 3, 4, 4, 5, 6, 6]:
+    if item not in my_list:
+        my_list.append(item)
+    </code></pre>
+
+    <h4>2. Removing Duplicates in Arrays (JavaScript)</h4>
+    <p>In JavaScript, you can use the Set object to remove duplicates from an array:</p>
+    <pre><code>
+// Remove duplicates using Set
+let arr = [1, 2, 3, 4, 4, 5, 6, 6];
+arr = [...new Set(arr)];
+    </code></pre>
+
+    <h4>3. Deduplication in Sets (Python and JavaScript)</h4>
+    <p>Sets inherently store unique values. If you need to eliminate duplicates, converting the data structure to a set is an efficient approach.</p>
+    <pre><code>
+# In Python
+my_set = set([1, 2, 3, 4, 4, 5, 6, 6])
+
+# In JavaScript
+let mySet = new Set([1, 2, 3, 4, 4, 5, 6, 6]);
+    </code></pre>
+
+    <h4>4. Data Cleaning in Arrays/Lists (Excel/Google Sheets)</h4>
+    <p>For simpler scenarios like working with arrays in spreadsheets, you can use built-in features:</p>
+    <pre><code>
+# Excel: Use "Remove Duplicates" under the Data tab.
+# Google Sheets: Use =UNIQUE(A2:A100) to get a list of unique entries.
+    </code></pre>
+
+    <h3>Best Practices for Removing Duplicates</h3>
+    <ul>
+        <li><strong>Choose the Right Data Structure</strong>: Use sets when you need to ensure uniqueness, as they do not allow duplicates by default.</li>
+        <li><strong>Check for Duplicates Before Insertion</strong>: Always verify that the data is not already present before adding it to your structure to avoid unnecessary duplication.</li>
+        <li><strong>Use Efficient Algorithms</strong>: Implement algorithms that minimize the occurrence of duplicates during operations like sorting or merging.</li>
+        <li><strong>Remove Duplicates Early</strong>: Remove duplicates at the earliest point in your program to save on memory and processing power later.</li>
+    </ul>
+
+    <h3>Visualizing Duplicate Entries in Data Structures</h3>
+    <p>Using libraries like matplotlib in Python, you can visualize the frequency of elements in data structures to easily identify duplicates. For example:</p>
+    <pre><code>
+# Python: Visualize duplicate elements
+import matplotlib.pyplot as plt
+from collections import Counter
+
+my_list = [1, 2, 3, 4, 4, 5, 6, 6]
+counts = Counter(my_list)
+plt.bar(counts.keys(), counts.values())
+plt.show()
+    </code></pre>
+
+    <h3>Real-World Applications of Removing Duplicates</h3>
+    <ul>
+        <li><strong>Database Management</strong>: Removing duplicate records ensures the database remains efficient and provides accurate query results.</li>
+        <li><strong>Data Processing</strong>: In data analysis or machine learning, eliminating duplicates ensures more accurate insights and predictions.</li>
+        <li><strong>Efficient Memory Usage</strong>: By removing duplicates early in data structures, you can optimize memory usage in large-scale applications.</li>
+        <li><strong>Search Algorithms</strong>: Removing duplicate entries before searching for a value reduces unnecessary iterations, making the search process faster.</li>
+    </ul>
+
+    <button onclick="showNext('unit4', 'unit5')">Mark as Done</button>
+</div>
+<div id="unit5" class="unit">
+    <h1>Unit 5: Standardizing Digital Marketing Data Using Data Structures</h1>
+    <p>Learn how to standardize marketing data using data structures like arrays, lists, and dictionaries to ensure consistency and improve campaign insights.</p>
+
+    <h2>What is Data Standardization in Digital Marketing?</h2>
+    <p>In digital marketing, data standardization refers to the process of converting data from multiple platforms into a consistent format. Standardizing data using data structures allows you to manage large datasets efficiently and perform analyses quickly.</p>
+
+    <h3>Key Concepts in Marketing Data Standardization</h3>
+    <ul>
+        <li><strong>Unifying Channel Metrics</strong>: Standardizing KPIs like impressions, clicks, and conversions across platforms helps compare and evaluate campaigns uniformly using structured data.</li>
+        <li><strong>Consistent Naming Conventions</strong>: Using consistent naming structures for campaigns, UTM parameters, and ad group names stored in arrays or dictionaries makes reporting easier.</li>
+        <li><strong>Audience Segment Alignment</strong>: Use lists or dictionaries to map audience categories (e.g., age ranges, interests) across channels, ensuring consistent targeting and analysis.</li>
+        <li><strong>Date & Time Format Standardization</strong>: Using date objects or strings, we can store and process timestamps in a consistent format for accurate performance tracking.</li>
+    </ul>
+
+    <h3>Why Standardizing Marketing Data is Important</h3>
+    <p>Standardized marketing data leads to more reliable insights and strategic decisions. Benefits include:</p>
+    <ul>
+        <li><strong>Cross-Channel Performance Analysis</strong>: Helps you compare ROI, engagement, and reach across different platforms using structured data for efficient aggregation.</li>
+        <li><strong>Automation in Reporting</strong>: Data structures like dictionaries and arrays enable the creation of automated dashboards and reports with consistent data schemas.</li>
+        <li><strong>Improved Audience Insights</strong>: Standardization using data structures ensures that segmentation and personalization strategies are based on clean, consistent data.</li>
+        <li><strong>Better Budget Allocation</strong>: Helps identify high-performing channels using structured data for efficient budget reallocation.</li>
+    </ul>
+
+    <h3>Methods for Standardizing Digital Marketing Data</h3>
+    <ul>
+        <li><strong>UTM Parameter Standardization</strong>: Using arrays or dictionaries, you can standardize UTM parameters to ensure clean campaign tracking.</li>
+<pre>
+# Example using Python and Data Structures to clean UTM parameters
+utm_data = {'utm_source': ['FB', 'facebook', 'Google', 'GOOGLE']}
+utm_dict = {'FB': 'facebook', 'google': 'google'}
+
+# Standardize UTM sources using dictionary
+for key in utm_data['utm_source']:
+    if key.lower() in utm_dict:
+        print(utm_dict[key.lower()])
+</pre>
+        <li><strong>Currency Conversion</strong>: When running global campaigns, using dictionaries to store conversion rates can simplify ROI calculations.</li>
+<pre>
+# Example using Python for currency conversion with data structures
+spend_data = [{'spend_usd': 100, 'conversion_rate': 1.0}, {'spend_usd': 200, 'conversion_rate': 0.85}]
+for data in spend_data:
+    data['spend_local'] = data['spend_usd'] * data['conversion_rate']
+    print(data)
+</pre>
+        <li><strong>Date Format Alignment</strong>: Use arrays or lists to store dates and then convert all entries into a standardized format for merging data.</li>
+<pre>
+# Example to standardize dates in a list
+dates = ['2024/01/01', '2024-02-01', '2024-03-01']
+standardized_dates = [pd.to_datetime(date).strftime('%Y-%m-%d') for date in dates]
+print(standardized_dates)
+</pre>
+    </ul>
+
+    <h3>Advanced Techniques for Marketing Data Standardization</h3>
+    <ul>
+        <li><strong>Using ETL Pipelines</strong>: Automating the extraction, transformation, and loading of data using data structures like lists and dictionaries helps streamline marketing data processes.</li>
+        <li><strong>Mapping Taxonomies</strong>: Use data structures like dictionaries to map platform-specific metrics to a unified reporting taxonomy.</li>
+<pre>
+# Example mapping platform terms using a dictionary
+metrics = {'Reach': 'Impressions', 'Views': 'Impressions'}
+for key, value in metrics.items():
+    print(f"Standardized Metric: {key} -> {value}")
+</pre>
+    </ul>
+
+    <h3>Challenges in Standardizing Marketing Data</h3>
+    <ul>
+        <li><strong>Data Silos</strong>: Marketing data is often spread across different tools (ads, CRM, email), making centralization of data structures like arrays or dictionaries difficult.</li>
+        <li><strong>Dynamic Campaign Structures</strong>: Campaign names and UTM tags may be inconsistent due to manual entry, requiring manual standardization of stored data.</li>
+        <li><strong>Inconsistent Metrics</strong>: Different platforms may define metrics differently (e.g., "clicks"), which can cause issues when using a unified data structure.</li>
+        <li><strong>Manual Workload</strong>: Without the automation of data processing and clean-up steps using data structures, manual standardization can be time-consuming and error-prone.</li>
+    </ul>
+
+    <h3>Practical Example: Cleaning Campaign Names Using Lists</h3>
+<pre>
+# Sample: Standardizing campaign names with lists
+campaigns = ['Summer_Sale', 'summer-sale', 'SUMMER SALE 2024']
+cleaned_campaigns = [campaign.lower().replace(r'[\s\-_]+', '-', regex=True) for campaign in campaigns]
+print(cleaned_campaigns)
+</pre>
+
+    <h3>Real-World Applications</h3>
+    <ul>
+        <li><strong>Marketing Dashboards</strong>: Standardized data feeds into tools like Google Data Studio, Tableau, and Power BI, utilizing data structures for real-time reporting.</li>
+        <li><strong>Customer Journey Mapping</strong>: Clean and structured data across email, ads, and web enables better visualization and analysis of customer journeys.</li>
+        <li><strong>ROI Attribution</strong>: Structured and standardized data supports accurate multi-touchpoint attribution for ROI analysis.</li>
+        <li><strong>Personalized Campaigns</strong>: Using clean data structures for personalization engines helps deliver targeted campaigns.</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+    <p>Standardizing your marketing data using data structures such as arrays, lists, and dictionaries is essential for better decision-making, improved campaign performance, and automated reporting. Structured data enables more effective analysis, leading to smarter business strategies.</p>
+
+    <b><h1>🎉 Congratulations! You’ve completed the unit on Digital Marketing Data Standardization Using Data Structures.</h1></b>
+    <button><a href="{{url_for('theoryquiz')}}">Start Quiz</a></button>
+</div>
+</body>
+<script>
+
+    function showNext(currentId, nextId) {
+        document.getElementById(currentId).classList.remove('active');
+        document.getElementById(nextId).classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+
+</html>
